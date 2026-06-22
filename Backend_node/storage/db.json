@@ -1,0 +1,176 @@
+{
+  "detections": [
+    {
+      "id": "b35ba682-5b2b-4d01-b74a-0df1fcbbea50",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "residence": "A-12",
+      "rssi": -58,
+      "ts": "2026-06-18T00:36:56.520Z",
+      "photo_id": "1781743016520_dog001_58fdd2.jpg"
+    },
+    {
+      "id": "c80f4b59-5f54-4af7-867e-4166226627d0",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "residence": "A-12",
+      "rssi": -66,
+      "ts": "2026-06-20T06:13:38.950Z",
+      "photo_id": "1781936018950_dog001_b245a0.jpg"
+    },
+    {
+      "id": "3b21c8fa-5098-4bcb-aa24-e5a55dc7b98f",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "residence": "A-12",
+      "rssi": -72,
+      "ts": "2026-06-20T06:13:59.850Z",
+      "photo_id": "1781936039850_dog001_f4628d.jpg"
+    },
+    {
+      "id": "6ad53cc0-b6ce-4ee9-91ba-59b160dc8f2f",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "residence": "A-12",
+      "rssi": -70,
+      "ts": "2026-06-20T06:14:42.854Z",
+      "photo_id": "1781936082854_dog001_794ae4.jpg"
+    },
+    {
+      "id": "68f0b2f4-7afd-4378-b695-ce4fe153814d",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "residence": "A-12",
+      "rssi": -74,
+      "ts": "2026-06-20T06:18:11.537Z",
+      "photo_id": "1781936291537_dog001_fe1961.jpg"
+    },
+    {
+      "id": "e0c00447-b564-44a1-b592-126b00fb8bb5",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "residence": "A-12",
+      "rssi": -70,
+      "ts": "2026-06-20T06:21:04.367Z",
+      "photo_id": "1781936464367_dog001_79b319.jpg"
+    },
+    {
+      "id": "726523cb-42e7-42fe-a3f9-81852b164bc2",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "residence": "A-12",
+      "rssi": -72,
+      "ts": "2026-06-20T06:26:58.574Z",
+      "photo_id": "1781936818574_dog001_8a29e1.jpg"
+    },
+    {
+      "id": "0145456d-b123-4b33-8587-6ecbc4f28307",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "residence": "A-12",
+      "rssi": -62,
+      "ts": "2026-06-20T06:27:21.732Z",
+      "photo_id": "1781936841732_dog001_8cd10a.jpg"
+    },
+    {
+      "id": "9617fea5-53a8-4eb8-96f9-a833873b2934",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "residence": "A-12",
+      "rssi": -70,
+      "ts": "2026-06-20T16:44:44.339Z",
+      "photo_id": "1781973884339_dog001_bab20c.jpg"
+    },
+    {
+      "id": "2e4fcfbb-7009-4773-b833-9bd9cbf73b47",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "residence": "A-12",
+      "rssi": -73,
+      "ts": "2026-06-20T16:46:52.738Z",
+      "photo_id": "1781974012738_dog001_028937.jpg"
+    },
+    {
+      "id": "102ddb5c-227c-41d5-8112-5a7bc3d9c05b",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "residence": "A-12",
+      "rssi": -70,
+      "ts": "2026-06-20T16:47:20.330Z",
+      "photo_id": "1781974040330_dog001_49d922.jpg"
+    },
+    {
+      "id": "4c875796-471a-4534-a8b4-ca0832946c8c",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "residence": "A-12",
+      "rssi": -62,
+      "ts": "2026-06-20T16:47:41.068Z",
+      "photo_id": "1781974061068_dog001_f7c3e4.jpg"
+    }
+  ],
+  "reports": [
+    {
+      "id": "56008988-4308-4fff-bb05-9cff8cad8188",
+      "residence": "A-12",
+      "detection_ids": [
+        "3b21c8fa-5098-4bcb-aa24-e5a55dc7b98f"
+      ],
+      "message": "Desechos, perro vecino 1",
+      "status": "pending",
+      "ts": "2026-06-20T06:15:33.099Z"
+    }
+  ],
+  "devices": {
+    "esp32cam": {
+      "fw": "0.2.0",
+      "residence": "A-12",
+      "wifi_rssi": -68,
+      "last_seen": "2026-06-20T16:48:43.795Z"
+    }
+  },
+  "pets": {
+    "dog001": {
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "residence": "B-07"
+    }
+  }
+}

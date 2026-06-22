@@ -1,0 +1,22 @@
+{
+  "name": "petprox-backend",
+  "version": "0.2.0",
+  "description": "Backend del Sistema de detección de mascotas por proximidad (Express + Firebase Firestore + fotos en disco).",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "firebase-admin": "^12.3.1",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "supertest": "^7.0.0"
+  },
+  "license": "MIT"
+}
