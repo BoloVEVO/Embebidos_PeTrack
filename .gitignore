@@ -1,0 +1,5 @@
+Backend_node/node_modules
+Collar_esp32c3/.pio/libdeps
+Device_esp32cam/.pio/libdeps
+Frontend_react/node_modules
+Panel_control_python/.venv
