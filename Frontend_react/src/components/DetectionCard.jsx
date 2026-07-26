@@ -10,7 +10,7 @@ export default function DetectionCard({ det, selected, onToggle }) {
       <img src={photoUrl(det.photo_id)} alt="Mascota detectada" loading="lazy" />
       <div className="body">
         <div className="row" style={{ justifyContent: "space-between", marginBottom: 4 }}>
-          <span className="pet-name">{det.pet || "Mascota no registrada"}</span>
+          <span className="pet-name">{det.pet || "Mascota cercana registrada"}</span>
           <span className={"badge" + (det.registered ? "" : " warn")}>
             {det.registered ? "registrada" : "sin registro"}
           </span>

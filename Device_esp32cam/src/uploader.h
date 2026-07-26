@@ -4,6 +4,7 @@
 
 #include <Arduino.h>
 #include "net_config.h"
+#include "ble_scanner.h"
 
 namespace up {
 
@@ -11,11 +12,14 @@ namespace up {
 bool ensureWifi(const netcfg::Config &cfg);
 
 // POST /detection (multipart: meta JSON + foto JPEG). Devuelve código HTTP (<0 = error).
-int postDetection(const netcfg::Config &cfg, const char *petId, int rssi,
+int postDetection(const netcfg::Config &cfg, const ble::PetHit &hit,
                   const uint8_t *jpeg, size_t len);
 
 // POST /device/heartbeat.
 void heartbeat(const netcfg::Config &cfg);
+void collarHeartbeat(const netcfg::Config &cfg, const char *collarId, int rssi);
+int postVideoFrame(const netcfg::Config &cfg, const ble::PetHit &hit, const uint8_t *jpeg, size_t len);
+void endVideo(const netcfg::Config &cfg, const char *reason);
 
 }  // namespace up
 

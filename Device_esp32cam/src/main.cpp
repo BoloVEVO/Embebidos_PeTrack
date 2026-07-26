@@ -14,13 +14,18 @@
 #include "ble_scanner.h"
 #include "uploader.h"
 #include "led_status.h"
+#include "identity.h"
 
-#define FW_VERSION "0.3.0-P6"
+#define FW_VERSION "0.4.0-VIDEO"
 
 static netcfg::Config s_cfg;
 static uint32_t s_lastHb = 0;
 static uint32_t s_lastWifiCheck = 0;
 static bool s_camOk = false;
+static bool s_videoActive = false;
+static uint32_t s_videoStarted = 0;
+static uint32_t s_lastVideoFrame = 0;
+static ble::PetHit s_videoHit;
 
 // Actualiza el LED según el estado real del WiFi.
 static void _syncLed()
@@ -48,6 +53,7 @@ void setup()
   Serial.println();
   Serial.println("Device (ESP32-CAM) boot - P3/P4/P6");
   Serial.printf("  fw=%s\n", FW_VERSION);
+  Serial.printf("  device_id=%s\n", identity::deviceId().c_str());
 
   s_cfg = netcfg::load();
   Serial.printf("  residencia=%s  backend=%s  wifi=%s\n",
@@ -76,9 +82,14 @@ void loop()
   ble::PetHit hit;
   if (ble::take(hit))
   {
-    Serial.printf("[evt] mascota cerca pet_id=%s rssi=%d -> captura+upload\n",
-                  hit.pet_id, hit.rssi);
+    s_videoHit = hit;
+    if (!s_videoActive) { s_videoActive = true; s_videoStarted = millis(); s_lastVideoFrame = 0; cam::setStreaming(true); }
+    Serial.printf("[evt] mascota cerca collar_id=%s pet_id=%s rssi=%d -> captura+upload\n",
+                  hit.collar_id[0] ? hit.collar_id : "legacy", hit.pet_id, hit.rssi);
     led::pulse(); // destello visual de detección
+    // Cualquier main actúa como proxy de presencia, aunque el collar sea de otro residente.
+    for (uint8_t i = 0; i < hit.count; ++i)
+      up::collarHeartbeat(s_cfg, hit.nearby[i].collar_id, hit.nearby[i].rssi);
 
     ble::pauseScan();
 
@@ -91,7 +102,7 @@ void loop()
         _syncLed();
         if (wifiOk)
         {
-          int code = up::postDetection(s_cfg, hit.pet_id, hit.rssi, fb->buf, fb->len);
+          int code = up::postDetection(s_cfg, hit, fb->buf, fb->len);
           Serial.printf("[evt] POST /detection (%u bytes) -> %d\n",
                         (unsigned)fb->len, code);
         }
@@ -111,6 +122,26 @@ void loop()
   }
 
   uint32_t now = millis();
+
+  if (s_videoActive) {
+    bool timedOut = now - ble::lastNearbyMs() >= VIDEO_COLLAR_TIMEOUT_MS;
+    bool maxDuration = now - s_videoStarted >= VIDEO_MAX_DURATION_MS;
+    if (timedOut) {
+      up::endVideo(s_cfg, "collar_timeout"); s_videoActive = false; cam::setStreaming(false);
+    } else if (maxDuration) {
+      up::endVideo(s_cfg, "max_duration"); s_videoStarted = now; s_lastVideoFrame = 0;
+    } else if (s_camOk && now - s_lastVideoFrame >= VIDEO_FRAME_MS) {
+      s_lastVideoFrame = now;
+      ble::pauseScan();
+      camera_fb_t *frame = cam::capture();
+      if (frame) {
+        int code = up::postVideoFrame(s_cfg, s_videoHit, frame->buf, frame->len);
+        Serial.printf("[video] frame -> HTTP %d\n", code);
+        cam::release(frame);
+      }
+      ble::resume();
+    }
+  }
 
   // Reconexión WiFi periódica si se cae la red
   if (now - s_lastWifiCheck >= 10000)

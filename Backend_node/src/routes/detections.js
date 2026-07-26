@@ -10,6 +10,7 @@ const fs = require("fs");
 const crypto = require("crypto");
 const multer = require("multer");
 const config = require("../config");
+const { authenticate, allow } = require("../auth");
 
 module.exports = function detectionsRouter(store) {
   const router = express.Router();
@@ -30,13 +31,23 @@ module.exports = function detectionsRouter(store) {
       // residencia (dónde se detectó) y el RSSI. Los datos de la mascota/dueño
       // se RESUELVEN en el backend desde el registro `pets` (base fuerte: no
       // viajan por BLE).
-      const { pet_id, residence, rssi } = meta;
-      if (!pet_id || !residence) {
+      const { device_id, collar_id, pet_id, residence, rssi } = meta;
+      const nearbyInput = Array.isArray(meta.nearby_collars) ? meta.nearby_collars : [];
+      const nearby = nearbyInput
+        .map((item) => ({ collar_id: String(item?.collar_id || ""), pet_id: String(item?.pet_id || ""), rssi: Number.isFinite(Number(item?.rssi)) ? Number(item.rssi) : null }))
+        .filter((item) => item.collar_id && item.pet_id);
+      if (!nearby.length && pet_id) nearby.push({ collar_id: collar_id || null, pet_id: String(pet_id), rssi: rssi ?? null });
+      if (!device_id || !nearby.length) {
         return res
           .status(400)
-          .json({ error: "missing_fields", required: ["pet_id", "residence"] });
+          .json({ error: "missing_fields", required: ["device_id", "nearby_collars"] });
       }
       if (!req.file) return res.status(400).json({ error: "photo_required" });
+
+      const mainDevice = await store.getDevice(String(device_id));
+      if (!mainDevice || mainDevice.type !== "main" || !mainDevice.owner_username) {
+        return res.status(403).json({ error: "main_device_not_registered" });
+      }
 
       const buf = req.file.buffer;
       // Validación de JPEG por magic bytes (FF D8 ... FF D9).
@@ -45,10 +56,21 @@ module.exports = function detectionsRouter(store) {
       }
 
       // Enriquecimiento desde el registro de mascotas (tolerante a no-registrada).
-      const pet = await store.getPet(String(pet_id));
+      const petRecords = await Promise.all(nearby.map((item) => store.getPet(item.pet_id)));
+      const detectedPets = nearby.map((item, index) => {
+        const registeredPet = petRecords[index];
+        return {
+          ...item,
+          pet: registeredPet?.pet || null,
+          owner: registeredPet?.owner || null,
+          pet_residence: registeredPet?.residence || null,
+          registered: !!registeredPet,
+        };
+      });
+      const primary = detectedPets[0];
 
       const ts = meta.ts || new Date().toISOString();
-      const safePet = String(pet_id).replace(/[^a-zA-Z0-9_-]/g, "") || "pet";
+      const safePet = String(primary.pet_id).replace(/[^a-zA-Z0-9_-]/g, "") || "pet";
       const photo_id = `${Date.now()}_${safePet}_${crypto
         .randomBytes(3)
         .toString("hex")}.jpg`;
@@ -57,12 +79,17 @@ module.exports = function detectionsRouter(store) {
       let rec;
       try {
         rec = await store.addDetection({
-          pet_id,
-          pet: pet ? pet.pet : null,
-          owner: pet ? pet.owner : null,
-          pet_residence: pet ? pet.residence : null, // residencia/hogar de la mascota
-          registered: !!pet,
-          residence, // dónde se detectó (residencia del dispositivo/residente)
+          device_id: device_id || null,
+          collar_id: primary.collar_id,
+          pet_id: primary.pet_id,
+          pet: primary.pet,
+          owner: primary.owner,
+          pet_residence: primary.pet_residence,
+          registered: primary.registered,
+          collar_ids: detectedPets.map((item) => item.collar_id),
+          pet_ids: detectedPets.map((item) => item.pet_id),
+          pets: detectedPets,
+          residence: mainDevice.residence, // fuente confiable: registro del dispositivo
           rssi: rssi ?? null,
           ts,
           photo_id,
@@ -80,20 +107,27 @@ module.exports = function detectionsRouter(store) {
     }
   });
 
-  router.get("/detections", async (req, res, next) => {
+  router.get("/detections", authenticate, allow("resident"), async (req, res, next) => {
     try {
-      const residence = req.query.residence || null;
       let limit = parseInt(req.query.limit || "20", 10);
       if (!Number.isFinite(limit) || limit < 1) limit = 20;
       limit = Math.min(limit, 200);
-      const items = await store.listDetections({ residence, limit });
+      const devices = await store.devices();
+      const residentDeviceIds = new Set(Object.values(devices)
+        .filter((device) => device.type === "main" && device.owner_username === (req.user.username || req.user.sub))
+        .map((device) => device.device_id));
+      // La pertenencia del main es la autorización fuerte. No filtramos primero
+      // por residencia porque documentos históricos pueden contener una config
+      // NVS antigua del dispositivo.
+      const candidates = await store.listDetections({ limit: Math.min(limit * 5, 500) });
+      const items = candidates.filter((item) => residentDeviceIds.has(item.device_id)).slice(0, limit);
       res.json({ items, count: items.length });
     } catch (e) {
       next(e);
     }
   });
 
-  router.get("/photos/:id", (req, res) => {
+  router.get("/photos/:id", authenticate, (req, res) => {
     const id = path.basename(req.params.id); // anti path-traversal
     const p = path.join(config.PHOTOS_DIR, id);
     if (!fs.existsSync(p)) return res.status(404).json({ error: "not_found" });

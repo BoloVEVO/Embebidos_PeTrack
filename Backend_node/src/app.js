@@ -5,14 +5,17 @@ const express = require("express");
 const cors = require("cors");
 const config = require("./config");
 const { createStore } = require("./store");
+const { startCleanupScheduler } = require("./cleanup");
 
 function createApp() {
   const app = express();
-  app.use(cors({ origin: config.CORS_ORIGIN }));
+  app.use(cors({ origin: config.CORS_ORIGIN, credentials: true }));
   app.use(express.json()); // multipart lo maneja multer en /detection (no afecta)
 
   const store = createStore();
   app.locals.store = store;
+  app.locals.cleanupTimer = startCleanupScheduler(store);
+  app.use(require("./routes/auth")(store));
 
   // Health-check (libre).
   app.get("/", (_req, res) =>
@@ -29,6 +32,7 @@ function createApp() {
   app.use(require("./routes/detections")(store));
   app.use(require("./routes/reports")(store));
   app.use(require("./routes/devices")(store));
+  app.use(require("./video_sessions")(store));
   app.use(require("./routes/pets")(store));
 
   // 404.

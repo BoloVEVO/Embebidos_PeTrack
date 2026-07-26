@@ -207,6 +207,7 @@ class PetTrackPanel(ctk.CTk):
         self._ui_q: queue.Queue[Callable[[], None]] = queue.Queue()
         self._busy = {"backend": False, "frontend": False,
                       "device": False, "collar": False}
+        self._closing = False
         self._nav: dict[str, NavItem] = {}
         self._views: dict[str, ctk.CTkBaseClass] = {}
 
@@ -699,14 +700,19 @@ class PetTrackPanel(ctk.CTk):
         self.btn_b_dn.configure(state="disabled")
 
         def work():
-            ok = (self.backend.start(on_log=self.log)
-                  if up else self.backend.stop(on_log=self.log))
-            def done():
-                self._busy["backend"] = False
-                self.btn_b_up.configure(state="normal")
-                self.btn_b_dn.configure(state="normal")
-            self._post(done)
-            _ = ok
+            try:
+                ok = (self.backend.start(on_log=self.log)
+                      if up else self.backend.stop(on_log=self.log))
+                if not ok:
+                    self.log("La operación del backend no se completó.")
+            except Exception as exc:  # noqa: BLE001
+                self.log(f"ERROR controlando backend: {exc}")
+            finally:
+                def done():
+                    self._busy["backend"] = False
+                    self.btn_b_up.configure(state="normal")
+                    self.btn_b_dn.configure(state="normal")
+                self._post(done)
         threading.Thread(target=work, daemon=True).start()
 
     def _async_frontend(self, up: bool) -> None:
@@ -717,21 +723,39 @@ class PetTrackPanel(ctk.CTk):
         self.btn_f_dn.configure(state="disabled")
 
         def work():
-            ok = (self.frontend.start(on_log=self.log)
-                  if up else self.frontend.stop(on_log=self.log))
-            def done():
-                self._busy["frontend"] = False
-                self.btn_f_up.configure(state="normal")
-                self.btn_f_dn.configure(state="normal")
-            self._post(done)
-            _ = ok
+            try:
+                ok = (self.frontend.start(on_log=self.log)
+                      if up else self.frontend.stop(on_log=self.log))
+                if not ok:
+                    self.log("La operación del frontend no se completó.")
+            except Exception as exc:  # noqa: BLE001
+                self.log(f"ERROR controlando frontend: {exc}")
+            finally:
+                def done():
+                    self._busy["frontend"] = False
+                    self.btn_f_up.configure(state="normal")
+                    self.btn_f_dn.configure(state="normal")
+                self._post(done)
         threading.Thread(target=work, daemon=True).start()
 
     def _on_all_up(self) -> None:
+        if self._busy["backend"] or self._busy["frontend"]:
+            self.log("Hay una operación de servicios en curso.")
+            return
         self.log("Levantar todo")
         self.btn_all_up.configure(state="disabled")
         self._async_backend(True)
-        self._async_frontend(True)
+
+        def start_front_when_ready():
+            if self._busy["backend"]:
+                self.after(200, start_front_when_ready)
+                return
+            if server_ctrl.is_healthy(port=BACKEND_PORT):
+                self._async_frontend(True)
+            else:
+                self.log("Frontend no iniciado porque el backend no quedó disponible.")
+        self.after(200, start_front_when_ready)
+
         def re_enable():
             if not (self._busy["backend"] or self._busy["frontend"]):
                 self.btn_all_up.configure(state="normal")
@@ -740,6 +764,9 @@ class PetTrackPanel(ctk.CTk):
         self.after(500, re_enable)
 
     def _on_all_down(self) -> None:
+        if self._busy["backend"] or self._busy["frontend"]:
+            self.log("No se puede detener: hay una operación de servicios en curso.")
+            return
         self.log("Detener todo")
         self._async_backend(False)
         self._async_frontend(False)
@@ -821,15 +848,22 @@ class PetTrackPanel(ctk.CTk):
         threading.Thread(target=work, daemon=True).start()
 
     def _on_close(self) -> None:
-        try:
-            if self.backend.is_alive():
-                self.log("Cerrando: deteniendo backend lanzado por la GUI…")
-                self.backend.stop(on_log=lambda m: None)
-            if self.frontend.is_alive():
-                self.log("Cerrando: deteniendo frontend lanzado por la GUI…")
-                self.frontend.stop(on_log=lambda m: None)
-        finally:
-            self.destroy()
+        if self._closing:
+            return
+        self._closing = True
+        self.protocol("WM_DELETE_WINDOW", lambda: None)
+        self.withdraw()
+
+        def work():
+            try:
+                if self.backend.is_alive():
+                    self.backend.stop(on_log=lambda _m: None)
+                if self.frontend.is_alive():
+                    self.frontend.stop(on_log=lambda _m: None)
+            finally:
+                self._post(self.destroy)
+
+        threading.Thread(target=work, daemon=False, name="petrack-shutdown").start()
 
 
 def main() -> None:

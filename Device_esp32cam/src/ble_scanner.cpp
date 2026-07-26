@@ -9,6 +9,8 @@ namespace ble
 
   static portMUX_TYPE s_mux = portMUX_INITIALIZER_UNLOCKED;
   static volatile bool s_pending = false;
+  static volatile uint32_t s_pendingSince = 0;
+  static volatile uint32_t s_lastNearbyMs = 0;
   static PetHit s_hit;
 
   // Seguimiento por mascota: EMA del RSSI + última vez que disparó (cooldown).
@@ -55,7 +57,20 @@ namespace ble
       if ((uint8_t)md[0] != (COMPANY_ID & 0xFF) ||
           (uint8_t)md[1] != ((COMPANY_ID >> 8) & 0xFF))
         return;
-      std::string pid = md.substr(2);
+      std::string pid;
+      char collarId[20] = {0};
+      if ((uint8_t)md[2] == BLE_PROTOCOL_VERSION && md.size() >= 10)
+      {
+        snprintf(collarId, sizeof(collarId), "col-%02X%02X%02X%02X%02X%02X",
+                 (uint8_t)md[3], (uint8_t)md[4], (uint8_t)md[5],
+                 (uint8_t)md[6], (uint8_t)md[7], (uint8_t)md[8]);
+        pid = md.substr(9);
+      }
+      else
+      {
+        // Compatibilidad con collares del protocolo anterior.
+        pid = md.substr(2);
+      }
       if (pid.empty() || pid.size() >= sizeof(s_hit.pet_id))
         return;
 
@@ -70,18 +85,33 @@ namespace ble
 
       uint32_t now = millis();
       const bool near = t->ema >= RSSI_THRESHOLD;
+      if (near) s_lastNearbyMs = now;
       if (near && (now - t->lastHitMs) >= COOLDOWN_MS)
       {
         t->lastHitMs = now;
         portENTER_CRITICAL(&s_mux);
         if (!s_pending)
-        { // no pisar una detección aún sin procesar
+        { // inicia una ventana para reunir todos los collares cercanos
+          memset(&s_hit, 0, sizeof(s_hit));
           strncpy(s_hit.pet_id, id, sizeof(s_hit.pet_id));
+          strncpy(s_hit.collar_id, collarId, sizeof(s_hit.collar_id) - 1);
+          s_hit.collar_id[sizeof(s_hit.collar_id) - 1] = 0;
           s_hit.rssi = (int)t->ema;
+          s_pendingSince = now;
           s_pending = true;
         }
+        bool exists = false;
+        for (uint8_t i = 0; i < s_hit.count; ++i)
+          if (strncmp(s_hit.nearby[i].collar_id, collarId, sizeof(s_hit.nearby[i].collar_id)) == 0) exists = true;
+        if (!exists && s_hit.count < MAX_TRACKED_PETS && collarId[0]) {
+          PetHit::NearbyPet &nearby = s_hit.nearby[s_hit.count++];
+          strncpy(nearby.collar_id, collarId, sizeof(nearby.collar_id) - 1);
+          strncpy(nearby.pet_id, id, sizeof(nearby.pet_id) - 1);
+          nearby.rssi = (int)t->ema;
+        }
         portEXIT_CRITICAL(&s_mux);
-        Serial.printf("[ble] HIT pet_id=%s rssi=%d ema=%.0f\n", id, rssi, t->ema);
+        Serial.printf("[ble] HIT collar_id=%s pet_id=%s rssi=%d ema=%.0f\n",
+                      collarId[0] ? collarId : "legacy", id, rssi, t->ema);
       }
     }
   };
@@ -120,7 +150,7 @@ namespace ble
   {
     bool got = false;
     portENTER_CRITICAL(&s_mux);
-    if (s_pending)
+    if (s_pending && millis() - s_pendingSince >= DETECTION_GROUP_MS)
     {
       out = s_hit;
       s_pending = false;
@@ -128,6 +158,47 @@ namespace ble
     }
     portEXIT_CRITICAL(&s_mux);
     return got;
+  }
+
+  uint32_t lastNearbyMs() { return s_lastNearbyMs; }
+
+  bool pairCollar(const char *collarId, const char *petId, const char *mainDeviceId)
+  {
+    if (!s_scan || !collarId || !petId || !mainDeviceId) return false;
+    s_scan->clearResults();
+    NimBLEScanResults results = s_scan->start(8, false);
+    NimBLEAdvertisedDevice *target = nullptr;
+    for (int i = 0; i < results.getCount(); ++i)
+    {
+      NimBLEAdvertisedDevice device = results.getDevice(i);
+      if (!device.haveManufacturerData()) continue;
+      std::string md = device.getManufacturerData();
+      if (md.size() < 10 || (uint8_t)md[2] != BLE_PROTOCOL_VERSION) continue;
+      char found[20];
+      snprintf(found, sizeof(found), "col-%02X%02X%02X%02X%02X%02X",
+               (uint8_t)md[3], (uint8_t)md[4], (uint8_t)md[5],
+               (uint8_t)md[6], (uint8_t)md[7], (uint8_t)md[8]);
+      if (strcasecmp(found, collarId) == 0)
+      {
+        target = new NimBLEAdvertisedDevice(device);
+        break;
+      }
+    }
+    if (!target) { s_scan->clearResults(); return false; }
+    NimBLEClient *client = NimBLEDevice::createClient();
+    bool ok = client->connect(target);
+    if (ok)
+    {
+      NimBLERemoteService *service = client->getService(PAIRING_SERVICE_UUID);
+      NimBLERemoteCharacteristic *characteristic = service ? service->getCharacteristic(PAIRING_CHAR_UUID) : nullptr;
+      String payload = String(mainDeviceId) + "|" + petId;
+      ok = characteristic && characteristic->writeValue(payload.c_str(), true);
+    }
+    if (client->isConnected()) client->disconnect();
+    NimBLEDevice::deleteClient(client);
+    delete target;
+    s_scan->clearResults();
+    return ok;
   }
 
 } // namespace ble

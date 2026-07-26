@@ -7,12 +7,15 @@ from __future__ import annotations
 import subprocess
 import sys
 import time
-from pathlib import Path
 from typing import Callable
 
 import requests
 
 from . import paths
+from .process_ctrl import (
+    listening_pids, popen_flags, stop_pid_tree, stop_tree,
+    stream_output, wait_port_released,
+)
 
 LogFn = Callable[[str], None]
 _NOOP: LogFn = lambda _m: None
@@ -21,7 +24,10 @@ _NOOP: LogFn = lambda _m: None
 def is_healthy(host: str = "127.0.0.1", port: int = 3000, timeout: float = 1.5) -> bool:
     try:
         r = requests.get(f"http://{host}:{port}/", timeout=timeout)
-        return r.status_code == 200
+        if r.status_code != 200:
+            return False
+        data = r.json()
+        return data.get("ok") is True and data.get("service") == "petprox-backend"
     except requests.RequestException:
         return False
 
@@ -78,10 +84,14 @@ class BackendController:
             self.proc = subprocess.Popen(
                 ["node.exe", "index.js"],
                 cwd=paths.BACKEND_DIR,
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL,
-                creationflags=_no_window() | _new_group(),
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                text=True,
+                encoding="utf-8",
+                errors="replace",
+                **popen_flags(),
             )
+            stream_output(self.proc.stdout, on_log, "backend")
         except OSError as exc:
             on_log(f"ERROR lanzando node: {exc}")
             return False
@@ -90,29 +100,44 @@ class BackendController:
         while time.monotonic() < deadline:
             if not self.is_alive():
                 on_log("ERROR: node terminó antes de responder.")
+                self.proc = None
                 return False
             if is_healthy(port=self.port):
                 on_log(f"Backend ACTIVO en http://localhost:{self.port}")
                 return True
             time.sleep(0.5)
         on_log("Timeout esperando health del backend.")
+        if self.is_alive():
+            on_log("Limpiando backend que no llegó a estar listo...")
+            stop_tree(self.proc)
+        self.proc = None
         return False
 
     def stop(self, on_log: LogFn = _NOOP) -> bool:
         if self.proc is None:
-            on_log("No hay backend lanzado por esta GUI.")
+            if is_healthy(port=self.port):
+                pids = listening_pids(self.port)
+                if not pids:
+                    on_log("Backend externo detectado, pero no se pudo identificar su PID.")
+                    return False
+                on_log(f"Deteniendo backend externo (PID {', '.join(map(str, pids))})...")
+                results = [stop_pid_tree(pid) for pid in pids]
+                released = wait_port_released(lambda: is_healthy(port=self.port))
+                if released:
+                    on_log("Backend externo detenido.")
+                    return True
+                failed = [str(pid) for pid, ok in zip(pids, results) if not ok]
+                on_log("No se pudo detener completamente el backend externo"
+                       + (f" (PID: {', '.join(failed)})." if failed else "."))
+                return False
+            on_log("Backend ya está detenido.")
             return True
         if self.proc.poll() is not None:
             self.proc = None
             return True
         on_log(f"Deteniendo backend (PID {self.proc.pid})...")
-        try:
-            self.proc.terminate()
-            self.proc.wait(timeout=6)
-        except subprocess.TimeoutExpired:
-            self.proc.kill()
-            self.proc.wait(timeout=4)
-        self.proc = None
+        proc, self.proc = self.proc, None
+        stop_tree(proc)
         on_log("Backend detenido.")
         return True
 

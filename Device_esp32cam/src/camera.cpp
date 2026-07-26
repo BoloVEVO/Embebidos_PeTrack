@@ -63,4 +63,11 @@ void release(camera_fb_t *fb) {
   if (fb) esp_camera_fb_return(fb);
 }
 
+void setStreaming(bool enabled) {
+  sensor_t *sensor = esp_camera_sensor_get();
+  if (!sensor) return;
+  sensor->set_framesize(sensor, enabled ? FRAMESIZE_VGA : CAM_FRAMESIZE);
+  sensor->set_quality(sensor, enabled ? 14 : CAM_JPEG_QUALITY);
+}
+
 }  // namespace cam

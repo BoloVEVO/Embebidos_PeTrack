@@ -31,7 +31,14 @@ def list_esp32_ports() -> list[ComPort]:
     for p in list_ports.comports():
         desc = (p.description or "").lower()
         hwid = (p.hwid or "").lower()
-        if any(k in desc for k in ("cp210", "ch340", "ch9102", "usb-serial", "silicon labs")) \
-           or "vid:pid=10c4" in hwid or "vid:pid=1a86" in hwid:
+        # Conversores habituales y USB-JTAG/Serial nativo de Espressif.
+        known_vids = {0x10C4, 0x1A86, 0x303A, 0x0403}
+        known_names = (
+            "cp210", "ch340", "ch341", "ch910", "usb-serial",
+            "usb serial", "silicon labs", "espressif", "ftdi",
+            "dispositivo serie usb", "usb serial device",
+        )
+        if p.vid in known_vids or any(k in desc for k in known_names) \
+           or any(f"vid:pid={vid:04x}" in hwid for vid in known_vids):
             out.append(ComPort(p.device, p.description or "", p.hwid or ""))
-    return out
+    return sorted(out, key=lambda item: item.device)

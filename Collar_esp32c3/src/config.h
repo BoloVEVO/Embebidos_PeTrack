@@ -25,6 +25,10 @@
 // pet_id por defecto (se puede sobreescribir en NVS sin reflashear).
 // Mantener corto (<= 16 chars) para no exceder el advertising.
 #define DEFAULT_PET_ID "dog001"
+#define MAX_PET_ID_LEN 12
+#define BLE_PROTOCOL_VERSION 1
+#define PAIRING_SERVICE_UUID "9d3a2f00-1c2b-4e6a-9f00-a1b2c3d4e5f7"
+#define PAIRING_CHAR_UUID    "9d3a2f00-1c2b-4e6a-9f00-a1b2c3d4e5f8"
 
 // Intervalo de tiempo que el dispostivo manda la señal por BLE
 #define HEARTBEAT_MS 5000

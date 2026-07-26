@@ -12,28 +12,36 @@
 #define SERVICE_UUID "9d3a2f00-1c2b-4e6a-9f00-a1b2c3d4e5f6"
 #define TARGET_NAME "PETTRACK"
 #define COMPANY_ID 0xFFFF
+#define BLE_PROTOCOL_VERSION 1
+#define PAIRING_SERVICE_UUID "9d3a2f00-1c2b-4e6a-9f00-a1b2c3d4e5f7"
+#define PAIRING_CHAR_UUID "9d3a2f00-1c2b-4e6a-9f00-a1b2c3d4e5f8"
 
 // ----- Proximidad -------------------------------------------------------------
 #define RSSI_THRESHOLD -75  // dBm: RSSI (suavizado) >= umbral = "cerca"
 #define RSSI_EMA_ALPHA 0.5f // suavizado EMA del RSSI (0..1; mayor = más reactivo)
 #define COOLDOWN_MS 20000   // por pet_id: no re-disparar captura/upload tan seguido
 #define MAX_TRACKED_PETS 12 // mascotas distintas que se rastrean a la vez
+#define DETECTION_GROUP_MS 1500
+#define VIDEO_FRAME_MS 1000
+#define VIDEO_COLLAR_TIMEOUT_MS 10000
+#define VIDEO_MAX_DURATION_MS 20000
 
 // ----- Tiempos ----------------------------------------------------------------
-#define HEARTBEAT_MS 15000    // POST /device/heartbeat
-#define WIFI_TIMEOUT_MS 12000 // espera al conectar WiFi
-#define HTTP_TIMEOUT_MS 10000 // timeout de POST /detection
+#define HEARTBEAT_MS 15000        // POST /device/heartbeat
+#define COLLAR_HEARTBEAT_MS 30000 // máximo una vez cada 30 s por collar
+#define WIFI_TIMEOUT_MS 12000     // espera al conectar WiFi
+#define HTTP_TIMEOUT_MS 10000     // timeout de POST /detection
 
 // ----- Defaults de red (overridable por NVS / portal en versión final) --------
-#define DEFAULT_WIFI_SSID "Euseb#Netl2.4G" // inyectado por panel al flashear
-#define DEFAULT_WIFI_PASS "Club#$#Premiun53"
-#define DEFAULT_BACKEND_HOST "http://192.168.100.23:3000" // inyectado por panel al flashear
+#define DEFAULT_WIFI_SSID "CLARO-HOLGUIN" // inyectado por panel al flashear
+#define DEFAULT_WIFI_PASS "holguin6904"
+#define DEFAULT_BACKEND_HOST "http://192.168.100.13:3000" // inyectado por panel al flashear
 #define DEFAULT_RESIDENCE "A-12"                          // residencia de ESTE dispositivo
-#define DEVICE_ID "esp32cam"
+#define VID_FRAMERATE 24
 
 // ----- Cámara: framesize moderado para convivir con BLE+WiFi en PSRAM ----------
-#define CAM_FRAMESIZE FRAMESIZE_VGA // 640x480
-#define CAM_JPEG_QUALITY 12         // 0-63 (menor = mejor calidad)
+#define CAM_FRAMESIZE FRAMESIZE_XGA // 1024x768
+#define CAM_JPEG_QUALITY 20         // 0-63 (menor = mejor calidad)
 
 // ----- Pines cámara AI-Thinker ESP32-CAM --------------------------------------
 #define PWDN_GPIO_NUM 32

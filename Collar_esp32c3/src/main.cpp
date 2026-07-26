@@ -1,26 +1,30 @@
 #include <Arduino.h>
 #include <NimBLEDevice.h>
-#include <Preferences.h>
-
+#include <esp_mac.h>
 #include "config.h"
+#include "identity.h"
+#include "pairing_service.h"
 
-#define FW_VERSION "0.2.0-P2"
+#define FW_VERSION "0.3.0-ID"
 
-static Preferences prefs;
-static String petId;
+static identity::Identity s_identity;
 
 static void startAdvertising()
 {
   NimBLEAdvertising *adv = NimBLEDevice::getAdvertising();
 
-  // INFO: (company id LE + pet_id
+  // Payload binario: company(2) + version(1) + MAC collar(6) + pet_id(<=12).
   NimBLEAdvertisementData advData;
   advData.setFlags(BLE_HS_ADV_F_DISC_GEN);
   advData.setName(DEVICE_NAME);
   std::string mfg;
   mfg += (char)(COMPANY_ID & 0xFF); // company id (little-endian)
   mfg += (char)((COMPANY_ID >> 8) & 0xFF);
-  mfg += std::string(petId.c_str()); // payload: pet_id
+  mfg += (char)BLE_PROTOCOL_VERSION;
+  uint8_t mac[6];
+  esp_efuse_mac_get_default(mac);
+  for (int i = 0; i < 6; ++i) mfg += (char)mac[i];
+  mfg += std::string(s_identity.petId.c_str());
   advData.setManufacturerData(mfg);
   adv->setAdvertisementData(advData);
 
@@ -45,14 +49,15 @@ void setup()
   Serial.print("  fw = ");
   Serial.println(FW_VERSION);
 
-  // pet_id desde NVS (editable sin reflashear), con fallback al default.
-  prefs.begin("petrack", false);
-  petId = prefs.getString("pet_id", DEFAULT_PET_ID);
-  Serial.print("  pet_id = ");
-  Serial.println(petId);
+  s_identity = identity::load();
+  Serial.printf("  collar_id=%s pet_id=%s paired=%s main_id=%s\n",
+                s_identity.collarId.c_str(), s_identity.petId.c_str(),
+                s_identity.paired ? "si" : "no",
+                s_identity.paired ? s_identity.mainDeviceId.c_str() : "(sin asignar)");
 
   NimBLEDevice::init(DEVICE_NAME);
   NimBLEDevice::setPower(ESP_PWR_LVL_P9); // alcance máximo
+  pairing::begin();
   startAdvertising();
   Serial.print("BLE iniciado (name=");
   Serial.print(DEVICE_NAME);
@@ -62,7 +67,8 @@ void setup()
 void loop()
 {
   // El advertising es continuo (lo gestiona NimBLE). Latido de diagnóstico.
-  Serial.print("[hb] PETRACK pet_id=");
-  Serial.println(petId);
+  Serial.printf("[hb] collar_id=%s pet_id=%s main_id=%s\n",
+                s_identity.collarId.c_str(), s_identity.petId.c_str(),
+                s_identity.paired ? s_identity.mainDeviceId.c_str() : "-");
   delay(HEARTBEAT_MS);
 }

@@ -11,6 +11,7 @@ bool begin();
 camera_fb_t *capture();
 // Devuelve el frame buffer al driver (obligatorio tras capture()).
 void release(camera_fb_t *fb);
+void setStreaming(bool enabled);
 }  // namespace cam
 
 #endif  // DEVICE_CAMERA_H

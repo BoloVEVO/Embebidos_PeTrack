@@ -7,9 +7,11 @@
 //    GET  /pets/:id
 // =============================================================================
 const express = require("express");
+const { authenticate, allow } = require("../auth");
 
 module.exports = function petsRouter(store) {
   const router = express.Router();
+  router.use(authenticate, allow("staff"));
 
   router.post("/pets", async (req, res, next) => {
     try {

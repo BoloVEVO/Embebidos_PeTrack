@@ -4,3 +4,8 @@ Device_esp32cam/.pio/libdeps
 Frontend_react/node_modules
 Panel_control_python/.venv
 /Panel_control_python/core/__pycache__
+/Backend_node/secrets
+Backend_node/.env
+/Backend_node/storage
+/Panel_control_python/core/__pycache__
+/Panel_control_python/core/__pycache__
