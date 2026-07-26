@@ -121,7 +121,7 @@ export function PairingPanel() {
   const [residents, setResidents] = useState([]);
   const [pets, setPets] = useState([]);
   const [ports, setPorts] = useState([]);
-  const [main, setMain] = useState({ device_id: "", owner_username: "", port: "" });
+  const [main, setMain] = useState({ device_id: "", owner_username: "", port: "", wifi_ssid: "", wifi_password: "" });
   const [collar, setCollar] = useState({ main_id: "", collar_id: "", pet_id: "", port: "" });
   const [mainJob, setMainJob] = useState(null);
   const [collarJob, setCollarJob] = useState(null);
@@ -165,7 +165,7 @@ export function PairingPanel() {
   };
   const flashMain = async (mode) => {
     try {
-      const data = await startFlash({ target: "main", mode, port: main.port, device_id: mode === "ota" ? main.device_id : null, owner_username: main.owner_username });
+      const data = await startFlash({ target: "main", mode, port: main.port, device_id: mode === "ota" ? main.device_id : null, owner_username: main.owner_username, wifi_ssid: main.wifi_ssid, wifi_password: main.wifi_password });
       setMainJob(data.job); setNotice("Flasheo del dispositivo main iniciado.");
     } catch (error) { setNotice(`No se pudo iniciar el flasheo main: ${error.message}`); }
   };
@@ -192,8 +192,10 @@ export function PairingPanel() {
         <Autocomplete label="ID del dispositivo" required value={main.device_id} onChange={(value) => setMain({ ...main, device_id: value })} options={mainOptions} placeholder="cam-AABBCCDDEEFF" />
         <button className="btn sm" type="submit">Registrar main existente</button>
         <hr className="divider" />
+        <label className="autocomplete-field">Red WiFi (2.4 GHz)<input className="input" required maxLength={32} autoComplete="off" value={main.wifi_ssid} onChange={(event) => setMain({ ...main, wifi_ssid: event.target.value })} placeholder="Nombre de la red" /></label>
+        <label className="autocomplete-field">Contraseña WiFi<input className="input" type="password" minLength={main.wifi_password ? 8 : undefined} maxLength={63} autoComplete="new-password" value={main.wifi_password} onChange={(event) => setMain({ ...main, wifi_password: event.target.value })} placeholder="Contraseña (vacía para red abierta)" /></label>
         <Autocomplete label="Puerto de comunicación" value={main.port} onChange={(value) => setMain({ ...main, port: value })} options={portOptions} placeholder="Escribe, por ejemplo COM4" />
-        <div className="row"><button className="btn sm" type="button" disabled={!main.port || !main.owner_username || RUNNING.includes(mainJob?.status)} onClick={() => flashMain("com")}>Flashear y registrar</button><button className="btn ghost sm" type="button" disabled={!main.device_id || RUNNING.includes(mainJob?.status)} onClick={() => flashMain("ota")}>Actualizar por OTA</button></div>
+        <div className="row"><button className="btn sm" type="button" disabled={!main.port || !main.owner_username || !main.wifi_ssid || RUNNING.includes(mainJob?.status)} onClick={() => flashMain("com")}>Flashear y registrar</button><button className="btn ghost sm" type="button" disabled={!main.device_id || !main.wifi_ssid || RUNNING.includes(mainJob?.status)} onClick={() => flashMain("ota")}>Actualizar por OTA</button></div>
         <FlashStatus job={mainJob} />
       </form>
 

@@ -16,7 +16,7 @@ process.env.GOOGLE_APPLICATION_CREDENTIALS = "__test_credentials_do_not_exist__.
 const request = require("supertest");
 const { createApp } = require("../src/app");
 const { cleanupExpiredDetections } = require("../src/cleanup");
-const { classifyChip, identityFromProbe } = require("../src/device_admin");
+const { classifyChip, identityFromProbe, cString } = require("../src/device_admin");
 
 const app = createApp();
 // JPEG mínimo válido (FF D8 ... FF D9).
@@ -39,6 +39,10 @@ test("verificación distingue ESP32-CAM/clásica de ESP32-C3", () => {
     "cam-CC8DA2C2B778");
   assert.equal(identityFromProbe("MAC: 11:22:33:44:55:66", "collar").deviceId,
     "col-112233445566");
+});
+
+test("las credenciales WiFi se escapan como literales C", () => {
+  assert.equal(cString('red"casa\\2'), 'red\\"casa\\\\2');
 });
 
 test("registro, sesión y roles", async () => {

@@ -202,7 +202,8 @@ module.exports = function devicesRouter(store) {
       const job = admin.startJob({ target: req.body?.target, mode: req.body?.mode,
         port: req.body?.port, deviceId: req.body?.device_id,
         ownerUsername: req.body?.owner_username,
-        mainDeviceId: req.body?.main_device_id, petId: req.body?.pet_id, store });
+        mainDeviceId: req.body?.main_device_id, petId: req.body?.pet_id,
+        wifiSsid: req.body?.wifi_ssid, wifiPassword: req.body?.wifi_password, store });
       res.status(202).json({ job });
     } catch (e) { res.status(e.message === "flash_busy" ? 409 : 400).json({ error: e.message }); }
   });

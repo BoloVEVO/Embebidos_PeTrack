@@ -38,6 +38,21 @@ function identityFromProbe(output, target) {
   return { hardwareUid, deviceId: `${target === "main" ? "cam" : "col"}-${hardwareUid}` };
 }
 
+function cString(value) {
+  return String(value).replace(/\\/g, "\\\\").replace(/"/g, '\\"');
+}
+
+function patchWifiConfig(ssid, password) {
+  const configPath = path.join(PROJECTS.main, "src", "config.h");
+  let source = fs.readFileSync(configPath, "utf8");
+  for (const [name, value] of [["DEFAULT_WIFI_SSID", ssid], ["DEFAULT_WIFI_PASS", password]]) {
+    const pattern = new RegExp(`(#define\\s+${name}\\s+)"(?:\\\\.|[^"\\\\])*"`);
+    if (!pattern.test(source)) throw new Error(`wifi_config_define_not_found:${name}`);
+    source = source.replace(pattern, (_match, prefix) => `${prefix}"${cString(value)}"`);
+  }
+  fs.writeFileSync(configPath, source, "utf8");
+}
+
 function listComPorts() {
   return new Promise((resolve) => {
     const script = "[System.IO.Ports.SerialPort]::GetPortNames() | ForEach-Object { [pscustomobject]@{DeviceID=$_;Name=$_;PNPDeviceID=''} } | ConvertTo-Json -Compress";
@@ -56,10 +71,16 @@ function listComPorts() {
   });
 }
 
-function startJob({ target, mode, port, deviceId, ownerUsername, mainDeviceId, petId, store }) {
+function startJob({ target, mode, port, deviceId, ownerUsername, mainDeviceId, petId,
+  wifiSsid, wifiPassword, store }) {
   if (!PROJECTS[target]) throw new Error("invalid_target");
   if (mode === "com" && !/^COM\d+$/i.test(port || "")) throw new Error("invalid_port");
   if (mode === "ota" && (target !== "main" || !deviceId)) throw new Error("invalid_ota_target");
+  if (target === "main") {
+    if (!wifiSsid || Buffer.byteLength(wifiSsid, "utf8") > 32) throw new Error("invalid_wifi_ssid");
+    const passwordBytes = Buffer.byteLength(wifiPassword || "", "utf8");
+    if (passwordBytes > 63 || (passwordBytes > 0 && passwordBytes < 8)) throw new Error("invalid_wifi_password");
+  }
   if ([...jobs.values()].some((j) => ["verifying", "running", "registering"].includes(j.status))) throw new Error("flash_busy");
 
   const id = crypto.randomUUID();
@@ -72,6 +93,15 @@ function startJob({ target, mode, port, deviceId, ownerUsername, mainDeviceId, p
   };
   const launchBuild = () => {
     job.status = "running";
+    if (target === "main") {
+      try {
+        patchWifiConfig(wifiSsid, wifiPassword || "");
+        log(`[config] WiFi configurado: ${wifiSsid}`);
+      } catch (e) {
+        job.status = "failed"; job.error = e.message;
+        job.completed_at = new Date().toISOString(); return;
+      }
+    }
     const args = ["run", "-d", PROJECTS[target]];
     if (mode === "com") args.push("-t", "upload", "--upload-port", port);
     const child = spawn(pioExe(), args, { cwd: PROJECTS[target], windowsHide: true });
@@ -177,4 +207,4 @@ function getOta(token, deviceId) {
   return item && item.deviceId === deviceId && item.expires > Date.now() ? item.firmware : null;
 }
 
-module.exports = { listComPorts, startJob, getJob, getOta, classifyChip, identityFromProbe };
+module.exports = { listComPorts, startJob, getJob, getOta, classifyChip, identityFromProbe, cString };
