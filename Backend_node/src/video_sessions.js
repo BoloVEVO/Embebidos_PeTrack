@@ -41,7 +41,7 @@ function ffmpegExe() {
 }
 
 function publicSession(s) {
-  const { frame_dir, ...safe } = s;
+  const { frame_dir, frame_times, ...safe } = s;
   return safe;
 }
 function persist(s) {
@@ -51,8 +51,21 @@ function encode(s) {
   if (s.encoding) return;
   s.encoding = true; s.status = "processing"; s.ended_at = s.ended_at || new Date().toISOString(); persist(s);
   const output = path.join(s.frame_dir, "recording.mp4");
+  const concat = path.join(s.frame_dir, "frames.txt");
+  const endMs = Math.min(Date.parse(s.ended_at), Date.parse(s.started_at) + config.VIDEO_MAX_DURATION_MS);
+  const times = s.frame_times?.length === s.frame_count ? s.frame_times :
+    Array.from({ length: s.frame_count }, (_, index) => Date.parse(s.started_at) + index * (1000 / config.VIDEO_FPS));
+  const lines = [];
+  for (let index = 0; index < s.frame_count; index += 1) {
+    const name = `frame-${String(index + 1).padStart(6, "0")}.jpg`;
+    const next = index + 1 < times.length ? times[index + 1] : endMs;
+    const duration = Math.max(0.001, Math.min(2, (next - times[index]) / 1000));
+    lines.push(`file '${name}'`, `duration ${duration.toFixed(3)}`);
+  }
+  if (s.frame_count) lines.push(`file 'frame-${String(s.frame_count).padStart(6, "0")}.jpg'`);
+  fs.writeFileSync(concat, lines.join("\n"), "utf8");
   const ffmpeg = ffmpegExe();
-  const child = spawn(ffmpeg, ["-y", "-framerate", "2", "-i", path.join(s.frame_dir, "frame-%06d.jpg"), "-c:v", "libx264", "-pix_fmt", "yuv420p", "-movflags", "+faststart", output], { windowsHide: true });
+  const child = spawn(ffmpeg, ["-y", "-f", "concat", "-safe", "0", "-i", concat, "-vf", `fps=${config.VIDEO_FPS}`, "-c:v", "libx264", "-pix_fmt", "yuv420p", "-movflags", "+faststart", output], { cwd: s.frame_dir, windowsHide: true });
   let detail = ""; child.stderr.on("data", (d) => { detail = (detail + d).slice(-2000); });
   child.on("error", (e) => { s.status = "failed"; s.error = `ffmpeg: ${e.message}`; persist(s); });
   child.on("close", (code) => { if (code === 0) { s.status = "completed"; s.video_ready = true; } else { s.status = "failed"; s.error = detail || `ffmpeg_exit_${code}`; } persist(s); });
@@ -60,8 +73,20 @@ function encode(s) {
 function closeSession(s, reason) {
   if (!s || s.status !== "live") return;
   activeByDevice.delete(s.device_id); s.end_reason = reason; s.ended_at = new Date().toISOString();
+  s.duration_ms = Math.min(Date.parse(s.ended_at) - Date.parse(s.started_at), config.VIDEO_MAX_DURATION_MS);
   streams.get(s.id)?.emit("end"); encode(s);
 }
+
+// Cierra sesiones aunque el dispositivo desaparezca sin alcanzar a llamar /video/end.
+const watchdog = setInterval(() => {
+  const now = Date.now();
+  for (const s of sessions.values()) {
+    if (s.status !== "live") continue;
+    if (now - Date.parse(s.started_at) >= config.VIDEO_MAX_DURATION_MS) closeSession(s, "max_duration");
+    else if (now - Date.parse(s.last_frame_at) >= config.VIDEO_FRAME_TIMEOUT_MS) closeSession(s, "frame_timeout");
+  }
+}, 1000);
+watchdog.unref?.();
 
 module.exports = function videoSessionsRouter(store) {
   const router = express.Router();
@@ -72,13 +97,19 @@ module.exports = function videoSessionsRouter(store) {
       if (!device || device.type !== "main" || !req.file) return res.status(400).json({ error: "invalid_frame" });
       let s = sessions.get(activeByDevice.get(device.device_id));
       const now = Date.now();
-      if (s && now - Date.parse(s.started_at) >= 20000) { closeSession(s, "max_duration"); s = null; }
+      if (s && now - Date.parse(s.started_at) >= config.VIDEO_MAX_DURATION_MS) {
+        closeSession(s, "max_duration");
+        return res.status(409).json({ error: "video_max_duration" });
+      }
       if (!s) {
         const id = crypto.randomUUID(); const frame_dir = path.join(ROOT, id); fs.mkdirSync(frame_dir, { recursive: true });
-        s = { id, device_id: device.device_id, owner_username: device.owner_username, residence: device.residence, status: "live", started_at: new Date().toISOString(), last_frame_at: new Date().toISOString(), frame_count: 0, pets: meta.pets || [], frame_dir, video_ready: false };
+        const recent = await store.listDetections({ limit: 50 });
+        const detection = recent.find((item) => item.device_id === device.device_id &&
+          now - Date.parse(item.ts) >= 0 && now - Date.parse(item.ts) <= 30000);
+        s = { id, detection_id: detection?.id || null, device_id: device.device_id, owner_username: device.owner_username, residence: device.residence, status: "live", started_at: new Date().toISOString(), last_frame_at: new Date().toISOString(), frame_count: 0, frame_times: [], fps: config.VIDEO_FPS, pets: meta.pets || [], frame_dir, video_ready: false };
         sessions.set(id, s); activeByDevice.set(device.device_id, id); streams.set(id, new EventEmitter());
       }
-      s.frame_count += 1; s.last_frame_at = new Date().toISOString(); s.pets = meta.pets || s.pets;
+      s.frame_count += 1; s.last_frame_at = new Date().toISOString(); s.frame_times.push(now); s.pets = meta.pets || s.pets;
       fs.writeFileSync(path.join(s.frame_dir, `frame-${String(s.frame_count).padStart(6, "0")}.jpg`), req.file.buffer); persist(s);
       streams.get(s.id).emit("frame", req.file.buffer);
       res.status(201).json({ ok: true, session_id: s.id, status: s.status });

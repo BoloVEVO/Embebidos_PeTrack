@@ -10,20 +10,22 @@
 
 // ----- Identidad BLE del collar (debe coincidir con Collar_esp32c3) -----------
 #define SERVICE_UUID "9d3a2f00-1c2b-4e6a-9f00-a1b2c3d4e5f6"
-#define TARGET_NAME "PETTRACK"
+#define TARGET_NAME "PET"
 #define COMPANY_ID 0xFFFF
-#define BLE_PROTOCOL_VERSION 1
+#define BLE_PROTOCOL_VERSION 2
 #define PAIRING_SERVICE_UUID "9d3a2f00-1c2b-4e6a-9f00-a1b2c3d4e5f7"
 #define PAIRING_CHAR_UUID "9d3a2f00-1c2b-4e6a-9f00-a1b2c3d4e5f8"
 
 // ----- Proximidad -------------------------------------------------------------
-#define RSSI_THRESHOLD -75  // dBm: RSSI (suavizado) >= umbral = "cerca"
+#define RSSI_THRESHOLD -88  // dBm: la antena de la C3 SuperMini suele reportar menos RSSI
 #define RSSI_EMA_ALPHA 0.5f // suavizado EMA del RSSI (0..1; mayor = más reactivo)
-#define COOLDOWN_MS 20000   // por pet_id: no re-disparar captura/upload tan seguido
+#define COOLDOWN_MS 20000   // por collar: no re-disparar captura/upload tan seguido
 #define MAX_TRACKED_PETS 12 // mascotas distintas que se rastrean a la vez
 #define DETECTION_GROUP_MS 1500
-#define VIDEO_FRAME_MS 1000
+#define VIDEO_FPS 10
+#define VIDEO_FRAME_MS (1000UL / VIDEO_FPS)
 #define VIDEO_COLLAR_TIMEOUT_MS 10000
+#define VIDEO_UPLOAD_TIMEOUT_MS 10000
 #define VIDEO_MAX_DURATION_MS 20000
 
 // ----- Tiempos ----------------------------------------------------------------
@@ -35,9 +37,9 @@
 // ----- Defaults de red (overridable por NVS / portal en versión final) --------
 #define DEFAULT_WIFI_SSID "CLARO-HOLGUIN" // inyectado por panel al flashear
 #define DEFAULT_WIFI_PASS "holguin6904"
-#define DEFAULT_BACKEND_HOST "http://192.168.100.13:3000" // inyectado por panel al flashear
+#define DEFAULT_BACKEND_HOST "http://192.168.100.19:3000" // inyectado por panel al flashear
 #define DEFAULT_RESIDENCE "A-1"                           // residencia de ESTE dispositivo
-#define VID_FRAMERATE 24
+#define VID_FRAMERATE VIDEO_FPS
 
 // ----- Cámara: framesize moderado para convivir con BLE+WiFi en PSRAM ----------
 #define CAM_FRAMESIZE FRAMESIZE_XGA // 1024x768

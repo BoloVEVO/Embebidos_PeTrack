@@ -5,6 +5,8 @@
 #include "identity.h"
 
 namespace pairing {
+static volatile uint32_t s_restartRequestedAt = 0;
+
 class ConfigCallbacks : public NimBLECharacteristicCallbacks {
   void onWrite(NimBLECharacteristic *characteristic) override {
     std::string raw = characteristic->getValue();
@@ -23,8 +25,9 @@ class ConfigCallbacks : public NimBLECharacteristicCallbacks {
       return;
     }
     characteristic->setValue("ok");
-    delay(250);
-    ESP.restart();
+    // Reiniciar desde loop(), despues de que NimBLE envie la respuesta ATT y
+    // permita que el cliente lea el resultado de la caracteristica.
+    s_restartRequestedAt = millis();
   }
 };
 
@@ -36,5 +39,10 @@ void begin() {
   config->setValue("ready");
   config->setCallbacks(new ConfigCallbacks());
   service->start();
+}
+
+bool restartDue() {
+  const uint32_t requestedAt = s_restartRequestedAt;
+  return requestedAt != 0 && millis() - requestedAt >= 1000;
 }
 }

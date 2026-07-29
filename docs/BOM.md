@@ -10,7 +10,7 @@
 ## Dispositivo Sensor (collar) — IP68 — Presupuesto $25
 | Componente | Costo | Voltaje | Corriente | Potencia |
 |---|---|---|---|---|
-| ESP32-C3 SUPERMINI | $10 | 3.7V | 40mA | 185–407mW |
+| ESP32-C3 Mini/SuperMini | $10 | 5V USB / 3.3V | 80mA típico | según carga y potencia BLE |
 | Batería de Litio Mini | $12 | 3.7V | 110mA | — |
 | Módulo de carga TP4056 | $3 | 3.7V | 40mA | — |
 

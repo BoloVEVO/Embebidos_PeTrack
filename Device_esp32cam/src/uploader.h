@@ -17,7 +17,7 @@ int postDetection(const netcfg::Config &cfg, const ble::PetHit &hit,
 
 // POST /device/heartbeat.
 void heartbeat(const netcfg::Config &cfg);
-void collarHeartbeat(const netcfg::Config &cfg, const char *collarId, int rssi);
+void collarHeartbeat(const netcfg::Config &cfg, const char *collarId, int rssi, float inclinationAngle);
 int postVideoFrame(const netcfg::Config &cfg, const ble::PetHit &hit, const uint8_t *jpeg, size_t len);
 void endVideo(const netcfg::Config &cfg, const char *reason);
 

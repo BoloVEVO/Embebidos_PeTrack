@@ -34,7 +34,8 @@ module.exports = function detectionsRouter(store) {
       const { device_id, collar_id, pet_id, residence, rssi } = meta;
       const nearbyInput = Array.isArray(meta.nearby_collars) ? meta.nearby_collars : [];
       const nearby = nearbyInput
-        .map((item) => ({ collar_id: String(item?.collar_id || ""), pet_id: String(item?.pet_id || ""), rssi: Number.isFinite(Number(item?.rssi)) ? Number(item.rssi) : null }))
+        .map((item) => ({ collar_id: String(item?.collar_id || ""), pet_id: String(item?.pet_id || ""), rssi: Number.isFinite(Number(item?.rssi)) ? Number(item.rssi) : null,
+          inclination_angle: Number.isFinite(Number(item?.inclination_angle)) ? Math.max(0, Math.min(180, Number(item.inclination_angle))) : null }))
         .filter((item) => item.collar_id && item.pet_id);
       if (!nearby.length && pet_id) nearby.push({ collar_id: collar_id || null, pet_id: String(pet_id), rssi: rssi ?? null });
       if (!device_id || !nearby.length) {
@@ -91,6 +92,7 @@ module.exports = function detectionsRouter(store) {
           pets: detectedPets,
           residence: mainDevice.residence, // fuente confiable: registro del dispositivo
           rssi: rssi ?? null,
+          inclination_angle: primary.inclination_angle,
           ts,
           photo_id,
         });

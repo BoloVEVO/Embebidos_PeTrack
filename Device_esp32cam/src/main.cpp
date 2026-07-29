@@ -16,7 +16,7 @@
 #include "led_status.h"
 #include "identity.h"
 
-#define FW_VERSION "0.4.0-VIDEO"
+#define FW_VERSION "0.4.1-C3BLE"
 
 static netcfg::Config s_cfg;
 static uint32_t s_lastHb = 0;
@@ -25,7 +25,15 @@ static bool s_camOk = false;
 static bool s_videoActive = false;
 static uint32_t s_videoStarted = 0;
 static uint32_t s_lastVideoFrame = 0;
+static uint32_t s_lastVideoFrameOk = 0;
 static ble::PetHit s_videoHit;
+
+static void stopVideo(const char *reason)
+{
+  s_videoActive = false;
+  cam::setStreaming(false);
+  up::endVideo(s_cfg, reason);
+}
 
 // Actualiza el LED según el estado real del WiFi.
 static void _syncLed()
@@ -82,14 +90,15 @@ void loop()
   ble::PetHit hit;
   if (ble::take(hit))
   {
+    bool startingVideo = !s_videoActive;
     s_videoHit = hit;
-    if (!s_videoActive) { s_videoActive = true; s_videoStarted = millis(); s_lastVideoFrame = 0; cam::setStreaming(true); }
+    if (!s_videoActive) { s_videoActive = true; s_videoStarted = millis(); s_lastVideoFrame = 0; s_lastVideoFrameOk = s_videoStarted; cam::setStreaming(true); }
     Serial.printf("[evt] mascota cerca collar_id=%s pet_id=%s rssi=%d -> captura+upload\n",
                   hit.collar_id[0] ? hit.collar_id : "legacy", hit.pet_id, hit.rssi);
     led::pulse(); // destello visual de detección
     // Cualquier main actúa como proxy de presencia, aunque el collar sea de otro residente.
     for (uint8_t i = 0; i < hit.count; ++i)
-      up::collarHeartbeat(s_cfg, hit.nearby[i].collar_id, hit.nearby[i].rssi);
+      up::collarHeartbeat(s_cfg, hit.nearby[i].collar_id, hit.nearby[i].rssi, hit.nearby[i].inclination_angle);
 
     ble::pauseScan();
 
@@ -119,27 +128,38 @@ void loop()
     }
 
     ble::resume();
+    // Los 20 s cuentan desde que terminó la captura inicial y empieza el video.
+    if (startingVideo) {
+      s_videoStarted = millis();
+      s_lastVideoFrame = 0;
+      s_lastVideoFrameOk = s_videoStarted;
+    }
   }
 
   uint32_t now = millis();
 
   if (s_videoActive) {
-    bool timedOut = now - ble::lastNearbyMs() >= VIDEO_COLLAR_TIMEOUT_MS;
+    // Dar una ventana completa tras el upload inicial: durante ese POST el
+    // scan estuvo pausado y lastNearbyMs todavia puede contener una muestra vieja.
+    bool timedOut = now - s_videoStarted >= VIDEO_COLLAR_TIMEOUT_MS &&
+                    now - ble::lastNearbyMs() >= VIDEO_COLLAR_TIMEOUT_MS;
     bool maxDuration = now - s_videoStarted >= VIDEO_MAX_DURATION_MS;
+    bool uploadTimedOut = now - s_lastVideoFrameOk >= VIDEO_UPLOAD_TIMEOUT_MS;
     if (timedOut) {
-      up::endVideo(s_cfg, "collar_timeout"); s_videoActive = false; cam::setStreaming(false);
+      stopVideo("collar_timeout");
     } else if (maxDuration) {
-      up::endVideo(s_cfg, "max_duration"); s_videoStarted = now; s_lastVideoFrame = 0;
+      stopVideo("max_duration");
+    } else if (uploadTimedOut) {
+      stopVideo("frame_timeout");
     } else if (s_camOk && now - s_lastVideoFrame >= VIDEO_FRAME_MS) {
       s_lastVideoFrame = now;
-      ble::pauseScan();
       camera_fb_t *frame = cam::capture();
       if (frame) {
         int code = up::postVideoFrame(s_cfg, s_videoHit, frame->buf, frame->len);
         Serial.printf("[video] frame -> HTTP %d\n", code);
+        if (code >= 200 && code < 300) s_lastVideoFrameOk = millis();
         cam::release(frame);
       }
-      ble::resume();
     }
   }
 
@@ -161,5 +181,6 @@ void loop()
     up::heartbeat(s_cfg);
   }
 
-  delay(50);
+  // Cede tiempo al RTOS y revisa la cadencia varias veces dentro de cada ventana de 100 ms.
+  delay(10);
 }

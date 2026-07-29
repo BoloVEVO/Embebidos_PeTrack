@@ -354,7 +354,7 @@ class PetTrackPanel(ctk.CTk):
         self.p_back = Card(view, "server", "Backend", "API de Node en :3000")
         self.p_front = Card(view, "browser", "Frontend", "Web de React en :5173")
         self.p_dev = Card(view, "camera", "Dispositivo", "ESP32-CAM de residencia")
-        self.p_col = Card(view, "chip", "Collar", "Baliza BLE ESP32-C3")
+        self.p_col = Card(view, "chip", "Collar", "Baliza BLE ESP32-D")
         self.p_net = Card(view, "network", "Red", "Conectividad y dispositivos")
 
         self.p_sys.grid(row=1, column=0, columnspan=2, sticky="nsew", padx=8, pady=8)
@@ -540,7 +540,7 @@ class PetTrackPanel(ctk.CTk):
              "Conecta la ESP32-CAM por USB. En la tarjeta Dispositivo escribe tu red WiFi y "
              "contraseña; el backend se inyecta solo. Pulsa “Flashear dispositivo”."),
             ("3. Flashear el collar",
-             "Conecta la ESP32-C3 por USB y pulsa “Flashear collar”."),
+             "Conecta la ESP32-D por USB y pulsa “Flashear collar”."),
             ("4. Probar",
              "Abre la web, registra la mascota y acerca el collar al dispositivo: aparece la "
              "detección con foto. Desde la pestaña Staff puedes resolver el reporte."),

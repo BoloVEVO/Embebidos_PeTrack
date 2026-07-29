@@ -53,6 +53,8 @@ module.exports = function devicesRouter(store) {
       await store.heartbeat(collarId, {
         detected_by_main_id: sourceMainId,
         detected_rssi: Number.isFinite(Number(req.body?.rssi)) ? Number(req.body.rssi) : null,
+        inclination_angle: Number.isFinite(Number(req.body?.inclination_angle)) ?
+          Math.max(0, Math.min(180, Number(req.body.inclination_angle))) : collar.inclination_angle ?? null,
         heartbeat_source: "ble_proxy",
       });
       res.json({ ok: true, accepted: true });
@@ -203,7 +205,8 @@ module.exports = function devicesRouter(store) {
         port: req.body?.port, deviceId: req.body?.device_id,
         ownerUsername: req.body?.owner_username,
         mainDeviceId: req.body?.main_device_id, petId: req.body?.pet_id,
-        wifiSsid: req.body?.wifi_ssid, wifiPassword: req.body?.wifi_password, store });
+        wifiSsid: req.body?.wifi_ssid, wifiPassword: req.body?.wifi_password,
+        backendHost: admin.backendHostForRequest(req), store });
       res.status(202).json({ job });
     } catch (e) { res.status(e.message === "flash_busy" ? 409 : 400).json({ error: e.message }); }
   });

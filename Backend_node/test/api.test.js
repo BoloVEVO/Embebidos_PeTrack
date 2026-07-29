@@ -16,7 +16,7 @@ process.env.GOOGLE_APPLICATION_CREDENTIALS = "__test_credentials_do_not_exist__.
 const request = require("supertest");
 const { createApp } = require("../src/app");
 const { cleanupExpiredDetections } = require("../src/cleanup");
-const { classifyChip, identityFromProbe, cString } = require("../src/device_admin");
+const { classifyChip, identityFromProbe, cString, backendHostForRequest } = require("../src/device_admin");
 
 const app = createApp();
 // JPEG mínimo válido (FF D8 ... FF D9).
@@ -30,11 +30,12 @@ test("GET / health", async () => {
   assert.equal(r.body.ok, true);
 });
 
-test("verificación distingue ESP32-CAM/clásica de ESP32-C3", () => {
+test("verificación acepta cualquier ESP32 para el collar", () => {
   assert.equal(classifyChip("Chip is ESP32-D0WD-V3 (revision v3.1)", "main").valid, true);
   assert.equal(classifyChip("Chip is ESP32-C3 (revision v0.4)", "collar").valid, true);
   assert.equal(classifyChip("Chip is ESP32-C3 (revision v0.4)", "main").valid, false);
-  assert.equal(classifyChip("Chip is ESP32-D0WD-V3", "collar").valid, false);
+  assert.equal(classifyChip("Chip is ESP32-D0WD-V3", "collar").valid, true);
+  assert.equal(classifyChip("Chip is ESP32-S3", "collar").valid, true);
   assert.equal(identityFromProbe("MAC: cc:8d:a2:c2:b7:78", "main").deviceId,
     "cam-CC8DA2C2B778");
   assert.equal(identityFromProbe("MAC: 11:22:33:44:55:66", "collar").deviceId,
@@ -43,6 +44,10 @@ test("verificación distingue ESP32-CAM/clásica de ESP32-C3", () => {
 
 test("las credenciales WiFi se escapan como literales C", () => {
   assert.equal(cString('red"casa\\2'), 'red\\"casa\\\\2');
+});
+
+test("el flasheo usa la IPv4 LAN cruda del servidor", () => {
+  assert.equal(backendHostForRequest({ socket: { localAddress: "::ffff:192.168.100.19" } }), "http://192.168.100.19:3000");
 });
 
 test("registro, sesión y roles", async () => {
@@ -185,6 +190,7 @@ test("Staff registra mains y un collar no puede pertenecer a dos mains", async (
   // Otro main, incluso del mismo u otro residente, puede informar la presencia BLE.
   const collarHeartbeat = await request(app).post("/device/collar-heartbeat").send({
     source_main_id: "cam-AABBCCDDEE02", collar_id: "col-112233445566", rssi: -61,
+    inclination_angle: 37.45,
   });
   assert.equal(collarHeartbeat.status, 200);
   assert.equal(collarHeartbeat.body.accepted, true);
@@ -199,6 +205,7 @@ test("Staff registra mains y un collar no puede pertenecer a dos mains", async (
   assert.equal(mine.body.collars.length, 1);
   assert.equal(mine.body.collars[0].main_device_id, "cam-AABBCCDDEE01");
   assert.equal(mine.body.collars[0].detected_by_main_id, "cam-AABBCCDDEE02");
+  assert.equal(mine.body.collars[0].inclination_angle, 37.45);
   assert.equal(mine.body.collars[0].online, true);
   assert.equal((await request(app).get("/devices/mine").set("Cookie", staffCookie)).status, 403);
 

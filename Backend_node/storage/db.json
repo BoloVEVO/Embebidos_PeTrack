@@ -836,6 +836,2374 @@
       "rssi": -74,
       "ts": "2026-07-26T04:12:06.633Z",
       "photo_id": "1785039126633_m003_c9a863.jpg"
+    },
+    {
+      "id": "13741764-d924-4ef6-9353-67b2f187ef06",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -67,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -67,
+      "ts": "2026-07-26T22:43:57.181Z",
+      "photo_id": "1785105837182_m003_b5b649.jpg"
+    },
+    {
+      "id": "6b0d34ac-31de-40ec-a264-ed8f584bc05c",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -65,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -65,
+      "ts": "2026-07-26T22:44:14.630Z",
+      "photo_id": "1785105854630_m003_6102e8.jpg"
+    },
+    {
+      "id": "16e69042-1e87-46b9-ba09-896fbe98fca2",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -61,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -61,
+      "ts": "2026-07-26T22:44:37.246Z",
+      "photo_id": "1785105877246_m003_46ca65.jpg"
+    },
+    {
+      "id": "b9e8fa3d-8d92-40d7-9601-b9ce52852990",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -61,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -61,
+      "ts": "2026-07-26T22:44:56.258Z",
+      "photo_id": "1785105896258_m003_c02f35.jpg"
+    },
+    {
+      "id": "ccdf8a94-ce25-439a-ae82-f287611f8cf6",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -60,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -60,
+      "ts": "2026-07-26T22:45:23.071Z",
+      "photo_id": "1785105923071_m003_8c03c8.jpg"
+    },
+    {
+      "id": "817c7910-7702-476b-938d-dece94870a83",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -63,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -63,
+      "ts": "2026-07-26T22:45:46.000Z",
+      "photo_id": "1785105946000_m003_37d754.jpg"
+    },
+    {
+      "id": "fb039536-41b5-4f40-8edd-c142b3a07803",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -65,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -65,
+      "ts": "2026-07-26T22:46:04.072Z",
+      "photo_id": "1785105964072_m003_3a1d46.jpg"
+    },
+    {
+      "id": "e89996ee-2af5-41e6-848e-3bf4707eaad3",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -67,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -67,
+      "ts": "2026-07-26T22:46:24.333Z",
+      "photo_id": "1785105984333_m003_6f582b.jpg"
+    },
+    {
+      "id": "51b7876c-2e6c-49be-9b70-6ff3d241750d",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -61,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -61,
+      "ts": "2026-07-26T22:46:46.208Z",
+      "photo_id": "1785106006208_m003_663322.jpg"
+    },
+    {
+      "id": "58e45a1a-dbe4-4fd2-978a-f684f13f1f04",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -62,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -62,
+      "ts": "2026-07-26T22:47:09.046Z",
+      "photo_id": "1785106029046_m003_1253ab.jpg"
+    },
+    {
+      "id": "e833f73f-cbd2-413b-91c8-31087736a838",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -65,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -65,
+      "ts": "2026-07-26T22:47:24.853Z",
+      "photo_id": "1785106044853_m003_6a350a.jpg"
+    },
+    {
+      "id": "3f8193f7-13fb-42e6-9f62-3497579fd009",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -64,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -64,
+      "ts": "2026-07-26T22:47:53.884Z",
+      "photo_id": "1785106073884_m003_750c83.jpg"
+    },
+    {
+      "id": "cb37cb34-8f5c-4437-8865-6337c594559e",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -64,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -64,
+      "ts": "2026-07-26T22:48:15.278Z",
+      "photo_id": "1785106095278_m003_706feb.jpg"
+    },
+    {
+      "id": "648784f6-15b7-4511-ab52-559cdecf9ea2",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -71,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -71,
+      "ts": "2026-07-26T22:48:36.532Z",
+      "photo_id": "1785106116532_m003_bd837e.jpg"
+    },
+    {
+      "id": "90967c84-25cd-4cd6-92ee-11dab3452cd4",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -65,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -65,
+      "ts": "2026-07-26T22:49:03.324Z",
+      "photo_id": "1785106143324_m003_90b3e3.jpg"
+    },
+    {
+      "id": "4ea6ad2e-7010-4d2d-b14a-c01aa360cdfd",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -67,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -67,
+      "ts": "2026-07-26T22:49:20.486Z",
+      "photo_id": "1785106160486_m003_132329.jpg"
+    },
+    {
+      "id": "f282727a-ddd4-425a-adb8-56822ff91a9a",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -68,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -68,
+      "ts": "2026-07-26T22:49:46.284Z",
+      "photo_id": "1785106186284_m003_25b480.jpg"
+    },
+    {
+      "id": "2b1d4c99-7120-4c28-92e2-6cacaa60853e",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -67,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -67,
+      "ts": "2026-07-26T22:50:04.537Z",
+      "photo_id": "1785106204537_m003_83ab88.jpg"
+    },
+    {
+      "id": "36b9f28f-fe2c-4867-9b96-a0537b436b3c",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -71,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -71,
+      "ts": "2026-07-26T22:50:23.016Z",
+      "photo_id": "1785106223016_m003_110767.jpg"
+    },
+    {
+      "id": "35d7c820-990b-4f15-829f-f6defdae1621",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -70,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -70,
+      "ts": "2026-07-26T22:50:43.315Z",
+      "photo_id": "1785106243315_m003_8dac8c.jpg"
+    },
+    {
+      "id": "49b94170-76f7-404c-9777-7409a48b63da",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -64,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -64,
+      "ts": "2026-07-26T22:51:03.685Z",
+      "photo_id": "1785106263685_m003_567a4a.jpg"
+    },
+    {
+      "id": "a7d548be-204d-4ecb-809f-ad37268ab96a",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -70,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -70,
+      "ts": "2026-07-26T22:51:28.293Z",
+      "photo_id": "1785106288293_m003_13fdb2.jpg"
+    },
+    {
+      "id": "d4a14c00-dfc8-4b6b-873b-b3edb6e449af",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -68,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -68,
+      "ts": "2026-07-26T22:51:54.488Z",
+      "photo_id": "1785106314488_m003_81a3cb.jpg"
+    },
+    {
+      "id": "f89b4de7-aaaf-4019-af05-e03f2b52cd51",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -69,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -69,
+      "ts": "2026-07-26T22:52:12.481Z",
+      "photo_id": "1785106332481_m003_944756.jpg"
+    },
+    {
+      "id": "cd6daeec-a424-4f95-af32-92716bb88920",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -71,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -71,
+      "ts": "2026-07-26T22:52:31.372Z",
+      "photo_id": "1785106351372_m003_fa559a.jpg"
+    },
+    {
+      "id": "eaf35320-d437-4e8f-b131-6b12189bd7cc",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -74,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -74,
+      "ts": "2026-07-26T22:52:50.856Z",
+      "photo_id": "1785106370856_m003_2ab4d8.jpg"
+    },
+    {
+      "id": "cf430056-3307-4ed1-a302-31950430c085",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -71,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -71,
+      "ts": "2026-07-26T22:53:20.490Z",
+      "photo_id": "1785106400490_m003_999249.jpg"
+    },
+    {
+      "id": "0c91b158-f07b-4df4-9464-5d6bd37b5363",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -72,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -72,
+      "ts": "2026-07-26T22:53:33.347Z",
+      "photo_id": "1785106413347_m003_32948d.jpg"
+    },
+    {
+      "id": "8ec9dfe9-d18c-46dc-b233-11659e5ebfad",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -69,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -69,
+      "ts": "2026-07-26T22:53:55.519Z",
+      "photo_id": "1785106435519_m003_5ed0af.jpg"
+    },
+    {
+      "id": "0a1a8949-48b3-40db-a0f5-574c916c32b8",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -70,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -70,
+      "ts": "2026-07-26T22:54:31.476Z",
+      "photo_id": "1785106471476_m003_22f7da.jpg"
+    },
+    {
+      "id": "c140e22a-9d5d-4f3a-b135-3e425fa1eefc",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -66,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -66,
+      "ts": "2026-07-26T22:54:54.267Z",
+      "photo_id": "1785106494267_m003_63723c.jpg"
+    },
+    {
+      "id": "e433dfab-a08a-40fb-9205-b93c948b6d1e",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -72,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -72,
+      "ts": "2026-07-26T22:55:22.267Z",
+      "photo_id": "1785106522267_m003_c2bed0.jpg"
+    },
+    {
+      "id": "5a959cd7-2881-4525-a4eb-7cf1ec32ab5e",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -71,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -71,
+      "ts": "2026-07-26T22:55:34.352Z",
+      "photo_id": "1785106534352_m003_c08f3c.jpg"
+    },
+    {
+      "id": "0f344304-8b3e-4e84-807a-1925447a9161",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -69,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -69,
+      "ts": "2026-07-26T22:55:57.125Z",
+      "photo_id": "1785106557125_m003_dc20b7.jpg"
+    },
+    {
+      "id": "024d3c8e-fba3-4571-8222-51ad7e0e45ce",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -62,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -62,
+      "ts": "2026-07-26T22:56:23.817Z",
+      "photo_id": "1785106583817_m003_c5ec25.jpg"
+    },
+    {
+      "id": "ffe6d093-7c65-452e-ab4d-dbddce538ed8",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -61,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -61,
+      "ts": "2026-07-26T22:56:34.590Z",
+      "photo_id": "1785106594590_m003_d0ba29.jpg"
+    },
+    {
+      "id": "9bbadc0a-d855-4cd9-90ce-64baf243b771",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -65,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -65,
+      "ts": "2026-07-26T22:56:54.723Z",
+      "photo_id": "1785106614723_m003_5c8843.jpg"
+    },
+    {
+      "id": "e3ffee7f-6949-4944-9566-bc821d22747b",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -62,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -62,
+      "ts": "2026-07-26T22:57:23.514Z",
+      "photo_id": "1785106643514_m003_e6464b.jpg"
+    },
+    {
+      "id": "b3d1a95f-2300-4a64-a756-6f0856c5cb3b",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -73,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -73,
+      "ts": "2026-07-26T22:58:05.765Z",
+      "photo_id": "1785106685765_m003_7d3148.jpg"
+    },
+    {
+      "id": "f6d97ba7-fd7d-4a17-8698-910632d20db3",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -73,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -73,
+      "ts": "2026-07-26T22:58:44.900Z",
+      "photo_id": "1785106724900_m003_00b2e8.jpg"
+    },
+    {
+      "id": "1d12a960-e361-49b3-853e-159ab4b44142",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -74,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -74,
+      "ts": "2026-07-27T05:49:34.440Z",
+      "photo_id": "1785131374440_m003_092ab1.jpg"
+    },
+    {
+      "id": "545be563-d53f-4da6-942e-4b5d0f3c5594",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -74,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -74,
+      "ts": "2026-07-27T05:50:05.575Z",
+      "photo_id": "1785131405575_m003_1856d9.jpg"
+    },
+    {
+      "id": "62565993-6ebc-4417-8e0b-4d42adda59b3",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -74,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -74,
+      "ts": "2026-07-27T05:50:25.681Z",
+      "photo_id": "1785131425681_m003_f6aaf4.jpg"
+    },
+    {
+      "id": "0ba910c0-5742-43e8-ba72-c50957253095",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -74,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -74,
+      "ts": "2026-07-27T05:50:52.571Z",
+      "photo_id": "1785131452571_m003_c6ebd5.jpg"
+    },
+    {
+      "id": "c3c98d5d-05b1-47fc-9ed8-e0a23a7db147",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -74,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -74,
+      "ts": "2026-07-27T05:51:15.190Z",
+      "photo_id": "1785131475190_m003_28c166.jpg"
+    },
+    {
+      "id": "8681882a-9d72-4c66-9662-d9de98600050",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -74,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -74,
+      "ts": "2026-07-27T05:51:41.099Z",
+      "photo_id": "1785131501100_m003_b134ff.jpg"
+    },
+    {
+      "id": "c2aacf8e-b216-4f4f-b893-54a3303d5221",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -74,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -74,
+      "ts": "2026-07-27T05:52:01.674Z",
+      "photo_id": "1785131521674_m003_1ec39a.jpg"
+    },
+    {
+      "id": "941e6e9a-b4f0-43c1-9c84-9eec6ae0939f",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -74,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -74,
+      "ts": "2026-07-27T05:52:25.764Z",
+      "photo_id": "1785131545764_m003_6210d7.jpg"
+    },
+    {
+      "id": "6b3fdbb3-75b8-4950-817f-9fae8f778ce9",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -73,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -73,
+      "ts": "2026-07-27T05:52:45.753Z",
+      "photo_id": "1785131565753_m003_2c288e.jpg"
+    },
+    {
+      "id": "2ae6df84-79da-4303-bf31-0dec201195eb",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -73,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -73,
+      "ts": "2026-07-27T05:53:06.509Z",
+      "photo_id": "1785131586509_m003_a2804f.jpg"
+    },
+    {
+      "id": "538bbe4c-8ecd-483f-9b7c-50c98d35d4d3",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -74,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -74,
+      "ts": "2026-07-27T05:53:26.729Z",
+      "photo_id": "1785131606729_m003_b881e3.jpg"
+    },
+    {
+      "id": "a066b61c-d696-4096-8336-b2d640c1e784",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -74,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -74,
+      "ts": "2026-07-27T05:53:47.059Z",
+      "photo_id": "1785131627059_m003_5b4209.jpg"
+    },
+    {
+      "id": "5f99a378-8f34-4903-a42e-4fea20909f21",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -74,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -74,
+      "ts": "2026-07-27T05:54:21.450Z",
+      "photo_id": "1785131661450_m003_8e6760.jpg"
+    },
+    {
+      "id": "e11d0800-cab4-4371-a7a8-566a1ad2c75f",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -73,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -73,
+      "ts": "2026-07-27T05:54:42.692Z",
+      "photo_id": "1785131682692_m003_81875f.jpg"
+    },
+    {
+      "id": "55183f94-1c61-4782-817c-1f73788053ed",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -73,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -73,
+      "ts": "2026-07-27T05:55:03.609Z",
+      "photo_id": "1785131703609_m003_9a82fe.jpg"
+    },
+    {
+      "id": "943a906a-1895-4c7b-94d9-f20947ce7c76",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -73,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -73,
+      "ts": "2026-07-27T05:55:24.065Z",
+      "photo_id": "1785131724065_m003_7ec5ad.jpg"
+    },
+    {
+      "id": "6cb984be-04a8-4f10-9fa6-99618e994f75",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -74,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -74,
+      "ts": "2026-07-27T05:55:45.233Z",
+      "photo_id": "1785131745233_m003_984325.jpg"
+    },
+    {
+      "id": "202bb822-415e-4269-b719-1a4ad6c1b322",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -73,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -73,
+      "ts": "2026-07-27T05:56:05.333Z",
+      "photo_id": "1785131765333_m003_973088.jpg"
+    },
+    {
+      "id": "d9a70877-cd81-47f8-b126-cb9f9baeaf0c",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -74,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -74,
+      "ts": "2026-07-27T05:56:25.787Z",
+      "photo_id": "1785131785788_m003_25162f.jpg"
+    },
+    {
+      "id": "63b95f51-1c30-492c-b213-d1a38e054cd4",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -74,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -74,
+      "ts": "2026-07-27T05:57:39.103Z",
+      "photo_id": "1785131859103_m003_e062e9.jpg"
+    },
+    {
+      "id": "ba367b1e-4995-4d22-b718-d5f5a1020feb",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -73,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -73,
+      "ts": "2026-07-27T05:57:59.217Z",
+      "photo_id": "1785131879217_m003_d355e5.jpg"
+    },
+    {
+      "id": "f5edcfae-cfce-4764-bc4e-a9b7560cf69e",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -72,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -72,
+      "ts": "2026-07-27T05:58:20.830Z",
+      "photo_id": "1785131900830_m003_713f51.jpg"
+    },
+    {
+      "id": "03ac2b80-91a3-4004-8b7b-5bffd4ffb3d3",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -73,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -73,
+      "ts": "2026-07-27T05:58:41.398Z",
+      "photo_id": "1785131921398_m003_c015b9.jpg"
+    },
+    {
+      "id": "9c9465a9-710c-4a76-bd96-ccefa546d0a9",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -74,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -74,
+      "ts": "2026-07-27T05:59:02.970Z",
+      "photo_id": "1785131942970_m003_0d192a.jpg"
+    },
+    {
+      "id": "30df489a-f43e-4c05-a06f-a71abcd26c85",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -73,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -73,
+      "ts": "2026-07-27T05:59:31.368Z",
+      "photo_id": "1785131971368_m003_2e7f3e.jpg"
+    },
+    {
+      "id": "36703d8c-493d-49ca-8121-ef2878d71301",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -59,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -59,
+      "ts": "2026-07-27T06:52:52.897Z",
+      "photo_id": "1785135172897_m003_12dbfc.jpg"
+    },
+    {
+      "id": "1118bc5d-6598-4797-821c-8888dad9bb2b",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -55,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -55,
+      "ts": "2026-07-27T06:53:13.251Z",
+      "photo_id": "1785135193252_m003_a6658a.jpg"
+    },
+    {
+      "id": "0d99d32b-379f-465f-a4f7-54c453473c27",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -73,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -73,
+      "ts": "2026-07-27T06:53:33.680Z",
+      "photo_id": "1785135213680_m003_99d845.jpg"
+    },
+    {
+      "id": "cacfa5a1-7d6c-4e09-a6d3-5fc257623e7f",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -69,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -69,
+      "ts": "2026-07-27T06:53:53.948Z",
+      "photo_id": "1785135233948_m003_cd318f.jpg"
+    },
+    {
+      "id": "bc9b1f77-501b-4c81-bfbe-a68539a47ebe",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -62,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -62,
+      "ts": "2026-07-27T06:54:15.142Z",
+      "photo_id": "1785135255142_m003_b9bef4.jpg"
+    },
+    {
+      "id": "fc7f5f33-73ae-41a9-9fca-7cb56263451d",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -74,
+          "inclination_angle": null,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -74,
+      "inclination_angle": null,
+      "ts": "2026-07-27T11:01:01.261Z",
+      "photo_id": "1785150061261_m003_63a09a.jpg"
+    },
+    {
+      "id": "c7af81d6-7629-4a36-a7ed-dbd9750ee435",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -74,
+          "inclination_angle": null,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -74,
+      "inclination_angle": null,
+      "ts": "2026-07-27T11:01:55.056Z",
+      "photo_id": "1785150115056_m003_b1c627.jpg"
+    },
+    {
+      "id": "1f087cfe-a8d6-4371-95e6-54596431fda1",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-CC8DA2C2B778",
+      "pet_id": "m003",
+      "pet": null,
+      "owner": null,
+      "pet_residence": null,
+      "registered": false,
+      "collar_ids": [
+        "col-CC8DA2C2B778"
+      ],
+      "pet_ids": [
+        "m003"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-CC8DA2C2B778",
+          "pet_id": "m003",
+          "rssi": -72,
+          "inclination_angle": null,
+          "pet": null,
+          "owner": null,
+          "pet_residence": null,
+          "registered": false
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -72,
+      "inclination_angle": null,
+      "ts": "2026-07-27T11:02:14.944Z",
+      "photo_id": "1785150134944_m003_bcbe3e.jpg"
+    },
+    {
+      "id": "15918e05-5e88-4bfd-a4c3-898cdadcf5b7",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-80F3DABC5DD0",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-80F3DABC5DD0"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-80F3DABC5DD0",
+          "pet_id": "dog001",
+          "rssi": -73,
+          "inclination_angle": null,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -73,
+      "inclination_angle": null,
+      "ts": "2026-07-29T05:14:06.659Z",
+      "photo_id": "1785302046659_dog001_dc1fd1.jpg"
+    },
+    {
+      "id": "c20a1ba5-231d-4977-a094-d7be5903245d",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-80F3DABC5DD0",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-80F3DABC5DD0"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-80F3DABC5DD0",
+          "pet_id": "dog001",
+          "rssi": -73,
+          "inclination_angle": null,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -73,
+      "inclination_angle": null,
+      "ts": "2026-07-29T05:14:44.300Z",
+      "photo_id": "1785302084300_dog001_12d047.jpg"
+    },
+    {
+      "id": "8219d3d9-b1da-4106-8388-ec7a65464baa",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-80F3DABC5DD0",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-80F3DABC5DD0"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-80F3DABC5DD0",
+          "pet_id": "dog001",
+          "rssi": -74,
+          "inclination_angle": null,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -74,
+      "inclination_angle": null,
+      "ts": "2026-07-29T05:15:20.250Z",
+      "photo_id": "1785302120250_dog001_59863e.jpg"
     }
   ],
   "reports": [
@@ -860,31 +3228,43 @@
     },
     "cam-24DCC3C32190": {
       "device_id": "cam-24DCC3C32190",
-      "fw": "0.4.0-VIDEO",
+      "fw": "0.4.1-C3BLE",
       "firmware_version": null,
-      "wifi_rssi": -57,
-      "last_seen": "2026-07-26T04:20:16.340Z",
+      "wifi_rssi": -44,
+      "last_seen": "2026-07-29T07:54:19.479Z",
       "online": true,
       "type": "main",
       "hardware_uid": "24DCC3C32190",
       "owner_username": "bolo",
       "residence": "A-1",
-      "registered_at": "2026-07-26T04:04:59.475Z"
+      "registered_at": "2026-07-29T07:27:03.838Z"
     },
     "col-CC8DA2C2B778": {
       "device_id": "col-CC8DA2C2B778",
       "type": "collar",
       "hardware_uid": "CC8DA2C2B778",
-      "pet_id": "m003",
+      "pet_id": "dog001",
       "owner_username": "bolo",
       "residence": "A-1",
-      "registered_at": "2026-07-26T03:55:28.172Z",
+      "registered_at": "2026-07-29T07:27:25.769Z",
       "main_device_id": "cam-24DCC3C32190",
-      "online": true,
+      "online": false
+    },
+    "col-80F3DABC5DD0": {
+      "device_id": "col-80F3DABC5DD0",
+      "type": "collar",
+      "hardware_uid": "80F3DABC5DD0",
+      "pet_id": "dog001",
+      "owner_username": "bolo",
+      "residence": "A-1",
+      "registered_at": "2026-07-29T05:12:12.132Z",
+      "main_device_id": "cam-24DCC3C32190",
+      "online": false,
       "detected_by_main_id": "cam-24DCC3C32190",
       "detected_rssi": -74,
+      "inclination_angle": null,
       "heartbeat_source": "ble_proxy",
-      "last_seen": "2026-07-26T04:11:45.967Z"
+      "last_seen": "2026-07-29T05:15:20.067Z"
     }
   },
   "pets": {
@@ -922,6 +3302,146 @@
         "pet_id": "m003",
         "detail": "collar_not_found_or_rejected",
         "completed_at": "2026-07-26T03:55:40.829Z"
+      },
+      {
+        "id": "ffb06e5a-ae51-4b82-8a32-701aec263a5d",
+        "status": "failed",
+        "created_at": "2026-07-27T11:01:08.485Z",
+        "type": "pair_collar",
+        "collar_id": "col-CC8DA2C2B778",
+        "pet_id": "m003",
+        "detail": "collar_not_found_or_rejected",
+        "completed_at": "2026-07-27T11:01:26.647Z"
+      },
+      {
+        "id": "99b553ff-2fc3-41b1-8978-29aa9a90c853",
+        "status": "failed",
+        "created_at": "2026-07-27T16:55:42.387Z",
+        "type": "pair_collar",
+        "collar_id": "col-CC8DA2C2B778",
+        "pet_id": "m0003",
+        "detail": "collar_not_found_or_rejected",
+        "completed_at": "2026-07-27T16:55:53.622Z"
+      },
+      {
+        "id": "fc6f4ed4-a1d4-44b5-8d79-1937df82c10c",
+        "status": "failed",
+        "created_at": "2026-07-27T16:57:17.144Z",
+        "type": "pair_collar",
+        "collar_id": "col-CC8DA2C2B778",
+        "pet_id": "m003",
+        "detail": "collar_not_found_or_rejected",
+        "completed_at": "2026-07-27T16:57:38.738Z"
+      },
+      {
+        "id": "c8bfb0f9-c0f6-4ea9-a6a4-10bbf97ff7e4",
+        "status": "failed",
+        "created_at": "2026-07-27T17:05:02.892Z",
+        "type": "pair_collar",
+        "collar_id": "col-CC8DA2C2B778",
+        "pet_id": "m004",
+        "detail": "collar_not_found_or_rejected",
+        "completed_at": "2026-07-27T17:05:23.841Z"
+      },
+      {
+        "id": "d43711ca-7aff-4cc4-af68-efd4379fdaf1",
+        "status": "failed",
+        "created_at": "2026-07-27T17:10:51.716Z",
+        "type": "pair_collar",
+        "collar_id": "col-CC8DA2C2B778",
+        "pet_id": "dog001",
+        "detail": "collar_not_found_or_rejected",
+        "completed_at": "2026-07-27T17:11:00.632Z"
+      },
+      {
+        "id": "8005aa48-ba8a-46c1-8f7c-2f97601f13c7",
+        "status": "failed",
+        "created_at": "2026-07-27T17:12:48.774Z",
+        "type": "pair_collar",
+        "collar_id": "col-CC8DA2C2B778",
+        "pet_id": "dog001",
+        "detail": "collar_not_found_or_rejected",
+        "completed_at": "2026-07-27T17:13:00.650Z"
+      },
+      {
+        "id": "feabfe22-25ca-40dc-bc4a-eca1baabd14a",
+        "status": "failed",
+        "created_at": "2026-07-27T17:14:16.563Z",
+        "type": "pair_collar",
+        "collar_id": "col-CC8DA2C2B778",
+        "pet_id": "dog001",
+        "detail": "collar_not_found_or_rejected",
+        "completed_at": "2026-07-27T17:14:30.702Z"
+      },
+      {
+        "id": "90409c3a-f690-4663-b2f5-3e19842bccab",
+        "status": "failed",
+        "created_at": "2026-07-29T04:37:34.383Z",
+        "type": "pair_collar",
+        "collar_id": "col-CC8DA2C2B778",
+        "pet_id": "dog001",
+        "detail": "collar_not_found_or_rejected",
+        "completed_at": "2026-07-29T04:37:44.814Z"
+      },
+      {
+        "id": "eb24acd0-958e-48b6-a9cb-347eb7787cf9",
+        "status": "failed",
+        "created_at": "2026-07-29T05:05:59.220Z",
+        "type": "pair_collar",
+        "collar_id": "col-80F3DABC5DD0",
+        "pet_id": "dog001",
+        "detail": "collar_not_found_or_rejected",
+        "completed_at": "2026-07-29T05:08:04.769Z"
+      },
+      {
+        "id": "9d7f0eba-3992-4d7f-9b51-d0e9d1610dcc",
+        "status": "failed",
+        "created_at": "2026-07-29T05:12:12.139Z",
+        "type": "pair_collar",
+        "collar_id": "col-80F3DABC5DD0",
+        "pet_id": "dog001",
+        "detail": "collar_not_found_or_rejected",
+        "completed_at": "2026-07-29T05:14:59.096Z"
+      },
+      {
+        "id": "22f75644-5027-40da-85cf-2eb57290c529",
+        "status": "failed",
+        "created_at": "2026-07-29T07:21:29.761Z",
+        "type": "pair_collar",
+        "collar_id": "col-CC8DA2C2B778",
+        "pet_id": "dog001",
+        "detail": "collar_not_found_or_rejected",
+        "completed_at": "2026-07-29T07:21:45.793Z"
+      },
+      {
+        "id": "6ae5f9e2-2444-4ac5-8021-14731bbca821",
+        "status": "failed",
+        "created_at": "2026-07-29T07:22:23.872Z",
+        "type": "pair_collar",
+        "collar_id": "col-CC8DA2C2B778",
+        "pet_id": "dog001",
+        "detail": "collar_not_found_or_rejected",
+        "completed_at": "2026-07-29T07:22:46.080Z"
+      },
+      {
+        "id": "368eccae-32ac-4059-a110-d0166106fc70",
+        "status": "failed",
+        "created_at": "2026-07-29T07:24:28.107Z",
+        "type": "pair_collar",
+        "collar_id": "col-CC8DA2C2B778",
+        "pet_id": "dog001",
+        "detail": "collar_not_found_or_rejected",
+        "completed_at": "2026-07-29T07:24:45.839Z"
+      },
+      {
+        "id": "639daf0d-5c07-4fa3-9c6b-2e9838cf477a",
+        "status": "failed",
+        "created_at": "2026-07-29T07:27:25.771Z",
+        "type": "pair_collar",
+        "collar_id": "col-CC8DA2C2B778",
+        "pet_id": "dog001",
+        "detail": "collar_not_found_or_rejected",
+        "completed_at": "2026-07-29T07:27:42.223Z"
       }
     ]
   }

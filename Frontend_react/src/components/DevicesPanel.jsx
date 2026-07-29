@@ -96,6 +96,7 @@ export function DeviceInventory() {
             {selected.type === "collar" && <div><span>ID mascota</span><strong>{selected.pet_id || "Sin asignar"}</strong></div>}
             {selected.type === "main" && <div><span>Última conexión</span><strong>{selected.last_seen ? new Date(selected.last_seen).toLocaleString() : "Nunca"}</strong></div>}
             {selected.type === "collar" && <>
+              <div><span>Ángulo de inclinación</span><strong>{selected.inclination_angle != null ? `${Number(selected.inclination_angle).toFixed(1)}°` : "No disponible"}</strong></div>
               <div><span>Última conexión BLE</span><strong>{selected.last_seen ? new Date(selected.last_seen).toLocaleString() : "Nunca detectado"}</strong></div>
               <div><span>Detectado por main</span><strong>{selected.detected_by_main_id || "Ningún dispositivo"}</strong></div>
               <div><span>RSSI de detección</span><strong>{selected.detected_rssi != null ? `${selected.detected_rssi} dBm` : "No informado"}</strong></div>

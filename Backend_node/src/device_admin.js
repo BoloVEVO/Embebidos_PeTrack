@@ -3,6 +3,7 @@ const crypto = require("crypto");
 const fs = require("fs");
 const os = require("os");
 const path = require("path");
+const config = require("./config");
 
 const ROOT = path.resolve(__dirname, "..", "..");
 const PROJECTS = {
@@ -26,9 +27,9 @@ function esptool() {
 function classifyChip(output, target) {
   const match = String(output).match(/chip is (ESP32[^\s(]*)/i);
   const chip = match ? match[1].toUpperCase() : "UNKNOWN";
-  const isC3 = chip.startsWith("ESP32-C3");
+  const isEsp32 = chip.startsWith("ESP32");
   const isClassic = chip.startsWith("ESP32") && !/^ESP32-(C3|S2|S3|C2|C6|H2)/.test(chip);
-  return { chip, valid: target === "collar" ? isC3 : target === "main" ? isClassic : false };
+  return { chip, valid: target === "collar" ? isEsp32 : target === "main" ? isClassic : false };
 }
 
 function identityFromProbe(output, target) {
@@ -42,12 +43,34 @@ function cString(value) {
   return String(value).replace(/\\/g, "\\\\").replace(/"/g, '\\"');
 }
 
-function patchWifiConfig(ssid, password) {
+function isLanIpv4(address) {
+  return /^10\./.test(address) || /^192\.168\./.test(address) ||
+    /^172\.(1[6-9]|2\d|3[01])\./.test(address);
+}
+
+function backendHostForRequest(req) {
+  const configured = String(process.env.SERVER_IP || "").trim();
+  const local = String(req?.socket?.localAddress || "").replace(/^::ffff:/, "");
+  let address = isLanIpv4(configured) ? configured : (isLanIpv4(local) ? local : "");
+  if (!address) {
+    const candidates = Object.values(os.networkInterfaces()).flat()
+      .filter((item) => item && item.family === "IPv4" && !item.internal && isLanIpv4(item.address));
+    address = candidates.find((item) => item.address.startsWith("192.168."))?.address || candidates[0]?.address || "";
+  }
+  if (!address) throw new Error("server_lan_ip_not_found");
+  return `http://${address}:${config.PORT}`;
+}
+
+function patchMainConfig(ssid, password, backendHost) {
   const configPath = path.join(PROJECTS.main, "src", "config.h");
   let source = fs.readFileSync(configPath, "utf8");
-  for (const [name, value] of [["DEFAULT_WIFI_SSID", ssid], ["DEFAULT_WIFI_PASS", password]]) {
+  for (const [name, value] of [
+    ["DEFAULT_WIFI_SSID", ssid],
+    ["DEFAULT_WIFI_PASS", password],
+    ["DEFAULT_BACKEND_HOST", backendHost],
+  ]) {
     const pattern = new RegExp(`(#define\\s+${name}\\s+)"(?:\\\\.|[^"\\\\])*"`);
-    if (!pattern.test(source)) throw new Error(`wifi_config_define_not_found:${name}`);
+    if (!pattern.test(source)) throw new Error(`main_config_define_not_found:${name}`);
     source = source.replace(pattern, (_match, prefix) => `${prefix}"${cString(value)}"`);
   }
   fs.writeFileSync(configPath, source, "utf8");
@@ -72,7 +95,7 @@ function listComPorts() {
 }
 
 function startJob({ target, mode, port, deviceId, ownerUsername, mainDeviceId, petId,
-  wifiSsid, wifiPassword, store }) {
+  wifiSsid, wifiPassword, backendHost, store }) {
   if (!PROJECTS[target]) throw new Error("invalid_target");
   if (mode === "com" && !/^COM\d+$/i.test(port || "")) throw new Error("invalid_port");
   if (mode === "ota" && (target !== "main" || !deviceId)) throw new Error("invalid_ota_target");
@@ -80,6 +103,11 @@ function startJob({ target, mode, port, deviceId, ownerUsername, mainDeviceId, p
     if (!wifiSsid || Buffer.byteLength(wifiSsid, "utf8") > 32) throw new Error("invalid_wifi_ssid");
     const passwordBytes = Buffer.byteLength(wifiPassword || "", "utf8");
     if (passwordBytes > 63 || (passwordBytes > 0 && passwordBytes < 8)) throw new Error("invalid_wifi_password");
+    try {
+      const backendUrl = new URL(backendHost);
+      if (!["http:", "https:"].includes(backendUrl.protocol) || !backendUrl.hostname) throw new Error();
+      backendHost = backendUrl.toString().replace(/\/$/, "");
+    } catch { throw new Error("invalid_backend_host"); }
   }
   if ([...jobs.values()].some((j) => ["verifying", "running", "registering"].includes(j.status))) throw new Error("flash_busy");
 
@@ -95,8 +123,9 @@ function startJob({ target, mode, port, deviceId, ownerUsername, mainDeviceId, p
     job.status = "running";
     if (target === "main") {
       try {
-        patchWifiConfig(wifiSsid, wifiPassword || "");
+        patchMainConfig(wifiSsid, wifiPassword || "", backendHost);
         log(`[config] WiFi configurado: ${wifiSsid}`);
+        log(`[config] Backend configurado: ${backendHost}`);
       } catch (e) {
         job.status = "failed"; job.error = e.message;
         job.completed_at = new Date().toISOString(); return;
@@ -171,7 +200,7 @@ function startJob({ target, mode, port, deviceId, ownerUsername, mainDeviceId, p
       const valid = code === 0 && detected.valid;
       job.detected_chip = detected.chip;
       if (!valid) {
-        job.status = "failed"; job.error = `wrong_chip: expected ${target === "collar" ? "ESP32-C3" : "ESP32-CAM (ESP32 clásico)"}`;
+        job.status = "failed"; job.error = `wrong_chip: expected ${target === "collar" ? "ESP32" : "ESP32-CAM (ESP32 clásico)"}`;
         job.completed_at = new Date().toISOString();
         return;
       }
@@ -207,4 +236,4 @@ function getOta(token, deviceId) {
   return item && item.deviceId === deviceId && item.expires > Date.now() ? item.firmware : null;
 }
 
-module.exports = { listComPorts, startJob, getJob, getOta, classifyChip, identityFromProbe, cString };
+module.exports = { listComPorts, startJob, getJob, getOta, classifyChip, identityFromProbe, cString, backendHostForRequest };

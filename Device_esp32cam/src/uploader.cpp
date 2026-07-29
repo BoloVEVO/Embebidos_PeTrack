@@ -70,6 +70,7 @@ namespace up
       item["collar_id"] = hit.nearby[i].collar_id;
       item["pet_id"] = hit.nearby[i].pet_id;
       item["rssi"] = hit.nearby[i].rssi;
+      if (isfinite(hit.nearby[i].inclination_angle)) item["inclination_angle"] = hit.nearby[i].inclination_angle;
     }
     String meta;
     serializeJson(metaDoc, meta);
@@ -117,7 +118,7 @@ namespace up
     http.addHeader("Content-Type", "application/json");
     char body[200];
     snprintf(body, sizeof(body),
-             "{\"device_id\":\"%s\",\"type\":\"main\",\"fw\":\"0.4.0-VIDEO\"," 
+             "{\"device_id\":\"%s\",\"type\":\"main\",\"fw\":\"0.4.1-C3BLE\"," 
              "\"residence\":\"%s\",\"wifi_rssi\":%d}",
              identity::deviceId().c_str(), cfg.residence.c_str(), (int)WiFi.RSSI());
     int code = http.POST((uint8_t *)body, strlen(body));
@@ -152,7 +153,7 @@ namespace up
     }
   }
 
-  void collarHeartbeat(const netcfg::Config &cfg, const char *collarId, int rssi)
+  void collarHeartbeat(const netcfg::Config &cfg, const char *collarId, int rssi, float inclinationAngle)
   {
     if (!collarId || !collarId[0] || WiFi.status() != WL_CONNECTED) return;
     uint32_t now = millis();
@@ -172,10 +173,15 @@ namespace up
     http.begin(client, cfg.backendHost + "/device/collar-heartbeat");
     http.setTimeout(HTTP_TIMEOUT_MS);
     http.addHeader("Content-Type", "application/json");
-    char body[180];
-    snprintf(body, sizeof(body),
-             "{\"source_main_id\":\"%s\",\"collar_id\":\"%s\",\"rssi\":%d}",
-             identity::deviceId().c_str(), collarId, rssi);
+    char body[220];
+    if (isfinite(inclinationAngle))
+      snprintf(body, sizeof(body),
+               "{\"source_main_id\":\"%s\",\"collar_id\":\"%s\",\"rssi\":%d,\"inclination_angle\":%.2f}",
+               identity::deviceId().c_str(), collarId, rssi, inclinationAngle);
+    else
+      snprintf(body, sizeof(body),
+               "{\"source_main_id\":\"%s\",\"collar_id\":\"%s\",\"rssi\":%d}",
+               identity::deviceId().c_str(), collarId, rssi);
     int code = http.POST((uint8_t *)body, strlen(body));
     Serial.printf("[hb] collar=%s via main=%s -> HTTP %d\n",
                   collarId, identity::deviceId().c_str(), code);
@@ -195,6 +201,7 @@ namespace up
     for (uint8_t i = 0; i < hit.count; ++i) {
       JsonObject item = pets.createNestedObject(); item["collar_id"] = hit.nearby[i].collar_id;
       item["pet_id"] = hit.nearby[i].pet_id; item["rssi"] = hit.nearby[i].rssi;
+      if (isfinite(hit.nearby[i].inclination_angle)) item["inclination_angle"] = hit.nearby[i].inclination_angle;
     }
     String meta; serializeJson(doc, meta);
     String boundary = "----video" + String(millis());

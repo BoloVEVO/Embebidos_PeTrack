@@ -59,18 +59,28 @@ namespace ble
         return;
       std::string pid;
       char collarId[20] = {0};
-      if ((uint8_t)md[2] == BLE_PROTOCOL_VERSION && md.size() >= 10)
+      float inclination = NAN;
+      const uint8_t version = (uint8_t)md[2];
+      // Solo aceptar versiones emitidas por collares PeTrack. COMPANY_ID=0xFFFF
+      // es de pruebas y por si solo no identifica de forma segura al proyecto.
+      if (version != 1 && version != BLE_PROTOCOL_VERSION)
+        return;
+      const size_t minimumSize = version >= 2 ? 12 : 10;
+      if (md.size() >= minimumSize)
       {
         snprintf(collarId, sizeof(collarId), "col-%02X%02X%02X%02X%02X%02X",
                  (uint8_t)md[3], (uint8_t)md[4], (uint8_t)md[5],
                  (uint8_t)md[6], (uint8_t)md[7], (uint8_t)md[8]);
-        pid = md.substr(9);
+        size_t petOffset = 9;
+        if (version >= 2 && md.size() >= 12) {
+          int16_t rawAngle = (int16_t)((uint8_t)md[9] | ((uint16_t)(uint8_t)md[10] << 8));
+          if (rawAngle != INT16_MIN) inclination = rawAngle / 100.0f;
+          petOffset = 11;
+        }
+        pid = md.substr(petOffset);
       }
       else
-      {
-        // Compatibilidad con collares del protocolo anterior.
-        pid = md.substr(2);
-      }
+        return;
       if (pid.empty() || pid.size() >= sizeof(s_hit.pet_id))
         return;
 
@@ -79,39 +89,58 @@ namespace ble
       id[pid.size()] = 0;
 
       int rssi = dev->getRSSI();
-      Track *t = findTrack(id);
+      // El collar es la identidad fisica del beacon. Usar pet_id como clave
+      // mezclaba el RSSI/cooldown de dos collares asignados a la misma mascota.
+      Track *t = findTrack(collarId[0] ? collarId : id);
       t->ema = (t->ema <= -126.0f) ? (float)rssi
                                    : (RSSI_EMA_ALPHA * rssi + (1.0f - RSSI_EMA_ALPHA) * t->ema);
 
       uint32_t now = millis();
       const bool near = t->ema >= RSSI_THRESHOLD;
       if (near) s_lastNearbyMs = now;
-      if (near && (now - t->lastHitMs) >= COOLDOWN_MS)
+      if (near)
       {
-        t->lastHitMs = now;
         portENTER_CRITICAL(&s_mux);
-        if (!s_pending)
+        const bool cooldownReady = t->lastHitMs == 0 ||
+                                   (now - t->lastHitMs) >= COOLDOWN_MS;
+        if (!s_pending && cooldownReady)
         { // inicia una ventana para reunir todos los collares cercanos
+          t->lastHitMs = now;
           memset(&s_hit, 0, sizeof(s_hit));
           strncpy(s_hit.pet_id, id, sizeof(s_hit.pet_id));
           strncpy(s_hit.collar_id, collarId, sizeof(s_hit.collar_id) - 1);
           s_hit.collar_id[sizeof(s_hit.collar_id) - 1] = 0;
           s_hit.rssi = (int)t->ema;
+          s_hit.inclination_angle = inclination;
           s_pendingSince = now;
           s_pending = true;
         }
-        bool exists = false;
-        for (uint8_t i = 0; i < s_hit.count; ++i)
-          if (strncmp(s_hit.nearby[i].collar_id, collarId, sizeof(s_hit.nearby[i].collar_id)) == 0) exists = true;
-        if (!exists && s_hit.count < MAX_TRACKED_PETS && collarId[0]) {
-          PetHit::NearbyPet &nearby = s_hit.nearby[s_hit.count++];
-          strncpy(nearby.collar_id, collarId, sizeof(nearby.collar_id) - 1);
-          strncpy(nearby.pet_id, id, sizeof(nearby.pet_id) - 1);
-          nearby.rssi = (int)t->ema;
+        if (s_pending) {
+          bool exists = false;
+          for (uint8_t i = 0; i < s_hit.count; ++i) {
+            if (strncmp(s_hit.nearby[i].collar_id, collarId,
+                        sizeof(s_hit.nearby[i].collar_id)) == 0) {
+              // Mantener la muestra mas reciente durante la ventana de grupo.
+              s_hit.nearby[i].rssi = (int)t->ema;
+              s_hit.nearby[i].inclination_angle = inclination;
+              exists = true;
+              break;
+            }
+          }
+          if (!exists && s_hit.count < MAX_TRACKED_PETS && collarId[0]) {
+            PetHit::NearbyPet &nearby = s_hit.nearby[s_hit.count++];
+            strncpy(nearby.collar_id, collarId, sizeof(nearby.collar_id) - 1);
+            nearby.collar_id[sizeof(nearby.collar_id) - 1] = 0;
+            strncpy(nearby.pet_id, id, sizeof(nearby.pet_id) - 1);
+            nearby.pet_id[sizeof(nearby.pet_id) - 1] = 0;
+            nearby.rssi = (int)t->ema;
+            nearby.inclination_angle = inclination;
+          }
         }
         portEXIT_CRITICAL(&s_mux);
-        Serial.printf("[ble] HIT collar_id=%s pet_id=%s rssi=%d ema=%.0f\n",
-                      collarId[0] ? collarId : "legacy", id, rssi, t->ema);
+        if (cooldownReady)
+          Serial.printf("[ble] HIT collar_id=%s pet_id=%s rssi=%d ema=%.0f\n",
+                        collarId, id, rssi, t->ema);
       }
     }
   };
@@ -173,7 +202,10 @@ namespace ble
       NimBLEAdvertisedDevice device = results.getDevice(i);
       if (!device.haveManufacturerData()) continue;
       std::string md = device.getManufacturerData();
-      if (md.size() < 10 || (uint8_t)md[2] != BLE_PROTOCOL_VERSION) continue;
+      if (md.size() < 12 ||
+          (uint8_t)md[0] != (COMPANY_ID & 0xFF) ||
+          (uint8_t)md[1] != ((COMPANY_ID >> 8) & 0xFF) ||
+          (uint8_t)md[2] != BLE_PROTOCOL_VERSION) continue;
       char found[20];
       snprintf(found, sizeof(found), "col-%02X%02X%02X%02X%02X%02X",
                (uint8_t)md[3], (uint8_t)md[4], (uint8_t)md[5],
@@ -193,6 +225,15 @@ namespace ble
       NimBLERemoteCharacteristic *characteristic = service ? service->getCharacteristic(PAIRING_CHAR_UUID) : nullptr;
       String payload = String(mainDeviceId) + "|" + petId;
       ok = characteristic && characteristic->writeValue(payload.c_str(), true);
+      if (ok) {
+        // El callback del collar sustituye "ready" por el resultado de la
+        // operacion. No confundir una escritura ATT exitosa con emparejamiento.
+        delay(100);
+        std::string response = characteristic->readValue();
+        ok = response == "ok";
+        if (!ok)
+          Serial.printf("[ble] pairing rechazado: %s\n", response.c_str());
+      }
     }
     if (client->isConnected()) client->disconnect();
     NimBLEDevice::deleteClient(client);

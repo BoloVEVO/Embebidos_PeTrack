@@ -635,6 +635,10 @@ body {
 .resident-detection-row > .badge { max-width: 130px; overflow: hidden; text-overflow: ellipsis; }
 .resident-detection-detail { min-width: 0; padding: clamp(20px, 4vw, 40px); }
 .resident-detection-detail > img { width: 100%; max-height: 390px; border-radius: 14px; object-fit: contain; background: #0e0906; margin-bottom: 25px; }
+.detection-video { display: grid; gap: 12px; margin-bottom: 24px; }
+.detection-video-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.detection-video-head small { color: var(--muted); }
+.detection-video > img, .detection-video > video { width: 100%; aspect-ratio: 4/3; object-fit: contain; border-radius: 14px; background: #080503; }
 .resident-detection-detail .detail-heading { border-bottom: 0; padding-bottom: 0; }
 .resident-report-layout { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(300px, .65fr); gap: 20px; align-items: start; }
 .report-select-list { border: 1px solid var(--border); border-radius: 18px; max-height: 650px; }

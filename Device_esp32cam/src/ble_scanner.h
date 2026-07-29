@@ -14,7 +14,8 @@ namespace ble
     char collar_id[20];
     char pet_id[24];
     int rssi;
-    struct NearbyPet { char collar_id[20]; char pet_id[24]; int rssi; };
+    float inclination_angle;
+    struct NearbyPet { char collar_id[20]; char pet_id[24]; int rssi; float inclination_angle; };
     NearbyPet nearby[MAX_TRACKED_PETS];
     uint8_t count;
   };

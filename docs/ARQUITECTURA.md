@@ -1,7 +1,7 @@
 # Arquitectura — Sistema de detección de mascotas por proximidad
 
 ## Componentes
-1. **Collar (ESP32-C3 SUPERMINI)** — beacon BLE; reanuncia cada 5 s.
+1. **Collar (ESP32-C3 Mini/SuperMini)** — beacon BLE; reanuncia cada 5 s.
 2. **Dispositivo residencia (ESP32-CAM)** — escanea BLE, detecta por RSSI, toma foto al detectar, sube por WiFi.
 3. **Backend (Node/Express + Firebase Firestore)** — recibe, almacena (foto en disco, metadata en Firestore), sirve a la web.
 4. **Frontend (React + Vite)** — el residente ve detecciones y reporta al Staff.

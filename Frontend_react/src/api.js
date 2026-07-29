@@ -1,5 +1,6 @@
 // api.js — Cliente del backend (centraliza las llamadas REST).
-const API_URL = (import.meta.env.VITE_API_URL || "http://localhost:3000").replace(/\/$/, "");
+const DEFAULT_API_URL = `http://${window.location.hostname}:3000`;
+const API_URL = (import.meta.env.VITE_API_URL || DEFAULT_API_URL).replace(/\/$/, "");
 
 async function req(path, opts) {
   const r = await fetch(API_URL + path, { credentials: "include", ...opts });
