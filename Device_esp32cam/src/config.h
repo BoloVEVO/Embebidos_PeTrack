@@ -37,7 +37,7 @@
 // ----- Defaults de red (overridable por NVS / portal en versión final) --------
 #define DEFAULT_WIFI_SSID "CLARO-HOLGUIN" // inyectado por panel al flashear
 #define DEFAULT_WIFI_PASS "holguin6904"
-#define DEFAULT_BACKEND_HOST "http://192.168.100.19:3000" // inyectado por panel al flashear
+#define DEFAULT_BACKEND_HOST "http://192.168.100.13:3000" // inyectado por panel al flashear
 #define DEFAULT_RESIDENCE "A-1"                           // residencia de ESTE dispositivo
 #define VID_FRAMERATE VIDEO_FPS
 

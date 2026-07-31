@@ -16,7 +16,11 @@
 #include "led_status.h"
 #include "identity.h"
 
-#define FW_VERSION "0.4.1-C3BLE"
+#define FW_VERSION "0.4.2-COLD-BOOT"
+
+// En un encendido en frio, el regulador de muchas placas ESP32-CAM tarda en
+// estabilizarse. Evita encender camara y radio durante ese transitorio.
+static constexpr uint32_t POWER_STABILIZE_MS = 1200;
 
 static netcfg::Config s_cfg;
 static uint32_t s_lastHb = 0;
@@ -55,7 +59,7 @@ static void _syncLed()
 void setup()
 {
   Serial.begin(115200);
-  delay(300);
+  delay(POWER_STABILIZE_MS);
 
   led::begin();
   Serial.println();
@@ -72,12 +76,14 @@ void setup()
   if (s_cfg.ssid.length() > 0)
     led::setConnecting();
 
+  // Conectar primero el radio y solo despues encender la camara. Esto reduce
+  // el pico simultaneo de consumo que puede causar brownout al conectar USB.
+  up::ensureWifi(s_cfg);
+  _syncLed();
+
   s_camOk = cam::begin();
   if (!s_camOk)
     Serial.println("  [warn] cámara no inicializó");
-
-  up::ensureWifi(s_cfg);
-  _syncLed();
 
   ble::begin();
   Serial.println("  listo: esperando collares PETTRACK cercanos...");

@@ -4,105 +4,86 @@
 #include "config.h"
 #include "identity.h"
 #include "pairing_service.h"
-#include "mpu6050.h"
 
-#define FW_VERSION "0.3.1-C3MINI"
+#define FW_VERSION "0.4.0-C3MINI-LP"
+
+#if SERIAL_DIAGNOSTICS
+#define LOG_BEGIN() Serial.begin(115200)
+#define LOG_PRINTLN(...) Serial.println(__VA_ARGS__)
+#define LOG_PRINTF(...) Serial.printf(__VA_ARGS__)
+#else
+#define LOG_BEGIN() ((void)0)
+#define LOG_PRINTLN(...) ((void)0)
+#define LOG_PRINTF(...) ((void)0)
+#endif
 
 static identity::Identity s_identity;
-
-static bool s_mpuOk = false;
-static float s_inclination = NAN;
-
-static bool startAdvertising()
-{
+static bool startAdvertising() {
   NimBLEAdvertising *adv = NimBLEDevice::getAdvertising();
   if (adv->isAdvertising()) adv->stop();
 
-  // Payload binario: company(2) + version(1) + MAC collar(6) + pet_id(<=12).
   NimBLEAdvertisementData advData;
   advData.setFlags(BLE_HS_ADV_F_DISC_GEN);
   std::string mfg;
-  mfg += (char)(COMPANY_ID & 0xFF); // company id (little-endian)
+  mfg += (char)(COMPANY_ID & 0xFF);
   mfg += (char)((COMPANY_ID >> 8) & 0xFF);
   mfg += (char)BLE_PROTOCOL_VERSION;
   uint8_t mac[6];
   esp_efuse_mac_get_default(mac);
   for (int i = 0; i < 6; ++i) mfg += (char)mac[i];
-  int16_t angle = isfinite(s_inclination) ? (int16_t)roundf(s_inclination * 100.0f) : INT16_MIN;
-  mfg += (char)(angle & 0xFF);
-  mfg += (char)((angle >> 8) & 0xFF);
   mfg += std::string(s_identity.petId.c_str());
   advData.setManufacturerData(mfg);
   adv->setAdvertisementData(advData);
 
-  // Service UUID del microcontrolador para que sea descubierto ---
   NimBLEAdvertisementData scanData;
   scanData.setName(DEVICE_NAME);
   scanData.setCompleteServices(NimBLEUUID(SERVICE_UUID));
   adv->setScanResponseData(scanData);
-
-  // Intervalo
-  adv->setMinInterval(0x1E0); // 300 ms
-  adv->setMaxInterval(0x280); // 400 ms
-
+  adv->setMinInterval(BLE_ADV_MIN_INTERVAL);
+  adv->setMaxInterval(BLE_ADV_MAX_INTERVAL);
   return adv->start();
 }
 
-void setup()
-{
-  Serial.begin(115200);
-  delay(300);
-  Serial.println();
-  Serial.println("Iniciando Collar PETRACK (ESP32-C3 Mini)");
-  Serial.print("  fw = ");
-  Serial.println(FW_VERSION);
+void setup() {
+  // GPIO8 drives the active-low onboard LED on the C3 SuperMini.
+  pinMode(ONBOARD_LED_PIN, OUTPUT);
+  digitalWrite(ONBOARD_LED_PIN, HIGH);
+
+#if LOW_POWER_MODE
+  setCpuFrequencyMhz(80);
+#endif
+  LOG_BEGIN();
+  LOG_PRINTF("PETRACK %s\n", FW_VERSION);
 
   s_identity = identity::load();
-  Serial.printf("  collar_id=%s pet_id=%s paired=%s main_id=%s\n",
-                s_identity.collarId.c_str(), s_identity.petId.c_str(),
-                s_identity.paired ? "si" : "no",
-                s_identity.paired ? s_identity.mainDeviceId.c_str() : "(sin asignar)");
-
+  LOG_PRINTF("Collar ID: %s pet_id=%s paired=%s main=%s\n",
+             s_identity.collarId.c_str(), s_identity.petId.c_str(),
+             s_identity.paired ? "yes" : "no",
+             s_identity.mainDeviceId.isEmpty() ? "(none)" : s_identity.mainDeviceId.c_str());
   NimBLEDevice::init(DEVICE_NAME);
-  NimBLEDevice::setPower(ESP_PWR_LVL_P9); // alcance máximo
+  // Potencia maxima para mantener un enlace fiable con la ESP32-CAM.
+  NimBLEDevice::setPower(ESP_PWR_LVL_P9);
   pairing::begin();
-  const bool bleStarted = startAdvertising();
-  Serial.printf("BLE advertising: %s (name=%s)\n",
-                bleStarted ? "iniciado" : "ERROR", DEVICE_NAME);
+  LOG_PRINTF("BLE advertising: %s\n", startAdvertising() ? "ok" : "error");
 
-  // BLE debe funcionar independientemente del sensor. Inicializar I2C solo
-  // despues de que el collar ya este anunciandose.
-  s_mpuOk = motion::begin();
-  if (s_mpuOk) motion::readInclination(s_inclination);
-  Serial.printf("MPU6050: %s\n", s_mpuOk ? "detectado" : "no disponible");
+  LOG_PRINTLN("MPU6050: disabled; stable BLE presence mode");
 }
 
-void loop()
-{
-  static uint32_t lastSample = 0;
-  static uint32_t lastAdvertisementUpdate = 0;
-  static uint32_t lastHeartbeat = 0;
-  uint32_t now = millis();
+void loop() {
+  static uint32_t lastDiagnostic = 0;
+  const uint32_t now = millis();
+
   if (pairing::restartDue()) {
-    Serial.println("[ble] emparejamiento guardado; reiniciando");
     delay(50);
     ESP.restart();
   }
-  if (s_mpuOk && now - lastSample >= INCLINATION_SAMPLE_MS) {
-    lastSample = now;
-    float value;
-    if (motion::readInclination(value)) s_inclination = value;
+#if SERIAL_DIAGNOSTICS
+  if (now - lastDiagnostic >= 5000) {
+    lastDiagnostic = now;
+    LOG_PRINTF("[ble] alive advertising=%s pet_id=%s\n",
+               NimBLEDevice::getAdvertising()->isAdvertising() ? "yes" : "no",
+               s_identity.petId.c_str());
   }
-  // Actualizar la telemetria sin cortar el advertising cada segundo.
-  if (s_mpuOk && now - lastAdvertisementUpdate >= ADVERTISEMENT_UPDATE_MS) {
-    lastAdvertisementUpdate = now;
-    if (!startAdvertising()) Serial.println("[ble] ERROR al actualizar advertising");
-  }
-  if (now - lastHeartbeat >= HEARTBEAT_MS) {
-    lastHeartbeat = now;
-    Serial.printf("[hb] collar_id=%s pet_id=%s main_id=%s inclinacion=%.2f\n",
-                  s_identity.collarId.c_str(), s_identity.petId.c_str(),
-                  s_identity.paired ? s_identity.mainDeviceId.c_str() : "-", s_inclination);
-  }
-  delay(1);
+#endif
+  delay(10);
 }

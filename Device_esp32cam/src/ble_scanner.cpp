@@ -11,6 +11,7 @@ namespace ble
   static volatile bool s_pending = false;
   static volatile uint32_t s_pendingSince = 0;
   static volatile uint32_t s_lastNearbyMs = 0;
+  static uint32_t s_lastRawDiagnosticMs = 0;
   static PetHit s_hit;
 
   // Seguimiento por mascota: EMA del RSSI + última vez que disparó (cooldown).
@@ -51,6 +52,17 @@ namespace ble
       if (!dev->haveManufacturerData())
         return;
       std::string md = dev->getManufacturerData();
+      const uint32_t diagnosticNow = millis();
+      if (diagnosticNow - s_lastRawDiagnosticMs >= 2000)
+      {
+        s_lastRawDiagnosticMs = diagnosticNow;
+        Serial.printf("[ble-rx] addr=%s rssi=%d mfg_len=%u data=",
+                      dev->getAddress().toString().c_str(), dev->getRSSI(),
+                      (unsigned)md.size());
+        for (size_t i = 0; i < md.size(); ++i)
+          Serial.printf("%02X", (uint8_t)md[i]);
+        Serial.println();
+      }
       if (md.size() < 3)
         return;
       // Filtro por Company ID (little-endian) del proyecto.

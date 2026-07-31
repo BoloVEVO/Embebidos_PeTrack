@@ -39,6 +39,10 @@ namespace up
     }
     Serial.printf("[wifi] conectando a %s ...\n", cfg.ssid.c_str());
     WiFi.mode(WIFI_STA);
+    // Las credenciales ya se administran en NVS por net_config; impedir que la
+    // pila WiFi escriba flash en cada intento y habilitar reconexion tras cortes.
+    WiFi.persistent(false);
+    WiFi.setAutoReconnect(true);
     WiFi.begin(cfg.ssid.c_str(), cfg.pass.c_str());
     uint32_t t0 = millis();
     while (WiFi.status() != WL_CONNECTED && (millis() - t0) < WIFI_TIMEOUT_MS)
@@ -118,7 +122,7 @@ namespace up
     http.addHeader("Content-Type", "application/json");
     char body[200];
     snprintf(body, sizeof(body),
-             "{\"device_id\":\"%s\",\"type\":\"main\",\"fw\":\"0.4.1-C3BLE\"," 
+             "{\"device_id\":\"%s\",\"type\":\"main\",\"fw\":\"0.4.2-COLD-BOOT\"," 
              "\"residence\":\"%s\",\"wifi_rssi\":%d}",
              identity::deviceId().c_str(), cfg.residence.c_str(), (int)WiFi.RSSI());
     int code = http.POST((uint8_t *)body, strlen(body));
