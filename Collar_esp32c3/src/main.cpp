@@ -3,6 +3,7 @@
 #include <esp_mac.h>
 #include "config.h"
 #include "identity.h"
+#include "mpu6050.h"
 #include "pairing_service.h"
 
 #define FW_VERSION "0.4.0-C3MINI-LP"
@@ -18,6 +19,8 @@
 #endif
 
 static identity::Identity s_identity;
+static bool s_sensorAvailable = false;
+static float s_inclination = NAN;
 static bool startAdvertising() {
   NimBLEAdvertising *adv = NimBLEDevice::getAdvertising();
   if (adv->isAdvertising()) adv->stop();
@@ -31,6 +34,12 @@ static bool startAdvertising() {
   uint8_t mac[6];
   esp_efuse_mac_get_default(mac);
   for (int i = 0; i < 6; ++i) mfg += (char)mac[i];
+  int16_t rawAngle = INT16_MIN;
+  if (isfinite(s_inclination)) {
+    rawAngle = (int16_t)lroundf(constrain(s_inclination, 0.0f, 180.0f) * 100.0f);
+  }
+  mfg += (char)(rawAngle & 0xFF);
+  mfg += (char)((rawAngle >> 8) & 0xFF);
   mfg += std::string(s_identity.petId.c_str());
   advData.setManufacturerData(mfg);
   adv->setAdvertisementData(advData);
@@ -45,10 +54,6 @@ static bool startAdvertising() {
 }
 
 void setup() {
-  // GPIO8 drives the active-low onboard LED on the C3 SuperMini.
-  pinMode(ONBOARD_LED_PIN, OUTPUT);
-  digitalWrite(ONBOARD_LED_PIN, HIGH);
-
 #if LOW_POWER_MODE
   setCpuFrequencyMhz(80);
 #endif
@@ -60,18 +65,34 @@ void setup() {
              s_identity.collarId.c_str(), s_identity.petId.c_str(),
              s_identity.paired ? "yes" : "no",
              s_identity.mainDeviceId.isEmpty() ? "(none)" : s_identity.mainDeviceId.c_str());
+  s_sensorAvailable = motion::begin();
+  if (s_sensorAvailable && !motion::readInclination(s_inclination)) {
+    s_inclination = NAN;
+  }
   NimBLEDevice::init(DEVICE_NAME);
   // Potencia maxima para mantener un enlace fiable con la ESP32-CAM.
   NimBLEDevice::setPower(ESP_PWR_LVL_P9);
   pairing::begin();
   LOG_PRINTF("BLE advertising: %s\n", startAdvertising() ? "ok" : "error");
 
-  LOG_PRINTLN("MPU6050: disabled; stable BLE presence mode");
+  LOG_PRINTF("MPU6050: %s angle=%.2f\n",
+             s_sensorAvailable ? "ok" : "not detected", s_inclination);
 }
 
 void loop() {
   static uint32_t lastDiagnostic = 0;
   const uint32_t now = millis();
+
+  static uint32_t lastInclinationSample = 0;
+  if (s_sensorAvailable && now - lastInclinationSample >= INCLINATION_SAMPLE_MS &&
+      !pairing::hasConnections()) {
+    lastInclinationSample = now;
+    float nextInclination;
+    if (motion::readInclination(nextInclination)) {
+      s_inclination = nextInclination;
+      startAdvertising();
+    }
+  }
 
   if (pairing::restartDue()) {
     delay(50);

@@ -3,5 +3,6 @@
 namespace pairing {
 void begin();
 bool restartDue();
+bool hasConnections();
 }
 #endif

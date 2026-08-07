@@ -22,7 +22,7 @@
 #define COOLDOWN_MS 20000   // por collar: no re-disparar captura/upload tan seguido
 #define MAX_TRACKED_PETS 12 // mascotas distintas que se rastrean a la vez
 #define DETECTION_GROUP_MS 1500
-#define VIDEO_FPS 10
+#define VIDEO_FPS 5
 #define VIDEO_FRAME_MS (1000UL / VIDEO_FPS)
 #define VIDEO_COLLAR_TIMEOUT_MS 10000
 #define VIDEO_UPLOAD_TIMEOUT_MS 10000
@@ -33,6 +33,9 @@
 #define COLLAR_HEARTBEAT_MS 30000 // máximo una vez cada 30 s por collar
 #define WIFI_TIMEOUT_MS 12000     // espera al conectar WiFi
 #define HTTP_TIMEOUT_MS 10000     // timeout de POST /detection
+#define WATCHDOG_TIMEOUT_S 45     // recupera bloqueos de camara/BLE/HTTP
+#define SERVER_FAILURES_WIFI_RESET 3
+#define SERVER_FAILURES_RESTART 6
 
 // ----- Defaults de red (overridable por NVS / portal en versión final) --------
 #define DEFAULT_WIFI_SSID "CLARO-HOLGUIN" // inyectado por panel al flashear

@@ -26,22 +26,21 @@
 // Mantener corto (<= 16 chars) para no exceder el advertising.
 #define DEFAULT_PET_ID "dog001"
 #define MAX_PET_ID_LEN 12
-#define BLE_PROTOCOL_VERSION 1
+#define BLE_PROTOCOL_VERSION 2
 #define PAIRING_SERVICE_UUID "9d3a2f00-1c2b-4e6a-9f00-a1b2c3d4e5f7"
 #define PAIRING_CHAR_UUID    "9d3a2f00-1c2b-4e6a-9f00-a1b2c3d4e5f8"
 
 // Intervalo de tiempo que el dispostivo manda la señal por BLE
 #define LOW_POWER_MODE 1
 #define SERIAL_DIAGNOSTICS 1
-#define ONBOARD_LED_PIN 8
 #define BLE_ADV_MIN_INTERVAL 320
 #define BLE_ADV_MAX_INTERVAL 480
 
-// MPU6050 por I²C. GPIO4/GPIO5 son pines seguros en la C3 SuperMini:
-// no interfieren con GPIO8/GPIO9, que participan en el modo de arranque.
-// El advertising BLE funciona aunque el sensor no esté conectado.
-#define MPU6050_SDA_PIN 4
-#define MPU6050_SCL_PIN 5
+// MPU6050 por I²C según el cableado físico del collar. GPIO8 queda dedicado
+// a SDA y no se configura como LED. El advertising BLE funciona aunque el
+// sensor no esté conectado (publica el marcador de ángulo no disponible).
+#define MPU6050_SDA_PIN 8
+#define MPU6050_SCL_PIN 9
 #define MPU6050_ADDRESS 0x68
 #define INCLINATION_SAMPLE_MS 10000
 #define ADVERTISEMENT_UPDATE_MS 10000

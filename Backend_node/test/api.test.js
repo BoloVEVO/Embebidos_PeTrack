@@ -91,7 +91,7 @@ test("flujo detección → enriquecida → listado → foto → reporte", async 
   const meta = JSON.stringify({
     device_id: "cam-AABBCCDDEE01", pet_id: "dog001", residence: "A-12", rssi: -55,
     nearby_collars: [
-      { collar_id: "col-112233445566", pet_id: "dog001", rssi: -55 },
+      { collar_id: "col-112233445566", pet_id: "dog001", rssi: -55, inclination_angle: 42.75 },
       { collar_id: "col-665544332211", pet_id: "dog002", rssi: -64 },
     ],
   });
@@ -113,6 +113,8 @@ test("flujo detección → enriquecida → listado → foto → reporte", async 
   assert.equal(d0.pet_residence, "B-07"); // hogar de la mascota
   assert.equal(d0.residence, "A-12"); // dónde se detectó
   assert.equal(d0.registered, true);
+  assert.equal(d0.inclination_angle, 42.75);
+  assert.equal(d0.pets[0].inclination_angle, 42.75);
   assert.equal(d0.pets.length, 2);
   assert.deepEqual(d0.pet_ids, ["dog001", "dog002"]);
 

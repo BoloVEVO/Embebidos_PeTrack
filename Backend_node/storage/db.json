@@ -3369,6 +3369,1953 @@
       "inclination_angle": null,
       "ts": "2026-07-31T09:32:31.459Z",
       "photo_id": "1785490351459_dog001_b6bfb3.jpg"
+    },
+    {
+      "id": "b1f0e58e-1b5e-4cbe-a8cd-2c139f1db40b",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -45,
+          "inclination_angle": null,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -45,
+      "inclination_angle": null,
+      "ts": "2026-08-04T21:54:39.992Z",
+      "photo_id": "1785880479992_dog001_b19819.jpg"
+    },
+    {
+      "id": "af494b77-5758-43b5-bfe1-4f34e1ab6bad",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -45,
+          "inclination_angle": 11.60000038,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -45,
+      "inclination_angle": 11.60000038,
+      "ts": "2026-08-04T21:55:10.575Z",
+      "photo_id": "1785880510575_dog001_e79e84.jpg"
+    },
+    {
+      "id": "005fb6a0-641d-4397-ba87-6335b1497dfa",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -45,
+          "inclination_angle": 11.81000042,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -45,
+      "inclination_angle": 11.81000042,
+      "ts": "2026-08-04T21:55:24.439Z",
+      "photo_id": "1785880524439_dog001_52fd80.jpg"
+    },
+    {
+      "id": "80ab883d-935d-455c-b68e-7d82107a3ca1",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -44,
+          "inclination_angle": 36.74000168,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -44,
+      "inclination_angle": 36.74000168,
+      "ts": "2026-08-04T21:55:44.748Z",
+      "photo_id": "1785880544748_dog001_69ccde.jpg"
+    },
+    {
+      "id": "b7d55330-5bbc-4258-b1f0-c4adb4a3707c",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -44,
+          "inclination_angle": 40.38000107,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -44,
+      "inclination_angle": 40.38000107,
+      "ts": "2026-08-04T21:56:06.704Z",
+      "photo_id": "1785880566704_dog001_c24917.jpg"
+    },
+    {
+      "id": "cf358d01-8494-4d23-af13-69599f28a79f",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -68,
+          "inclination_angle": 7.380000114,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -68,
+      "inclination_angle": 7.380000114,
+      "ts": "2026-08-06T00:08:33.217Z",
+      "photo_id": "1785974913217_dog001_3b8a3c.jpg"
+    },
+    {
+      "id": "4a4bf364-59a2-445a-ba95-9a350931df84",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -70,
+          "inclination_angle": 7.75,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -70,
+      "inclination_angle": 7.75,
+      "ts": "2026-08-06T00:09:11.997Z",
+      "photo_id": "1785974951997_dog001_587e68.jpg"
+    },
+    {
+      "id": "0b0bf7dd-9d87-4430-a3d2-5a99550dd58f",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -65,
+          "inclination_angle": 7.769999981,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -67,
+      "inclination_angle": 7.769999981,
+      "ts": "2026-08-06T00:09:26.824Z",
+      "photo_id": "1785974966824_dog001_9f6e28.jpg"
+    },
+    {
+      "id": "7b988321-14f1-4a1c-8860-b8ea02f026cc",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -56,
+          "inclination_angle": 7.860000134,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -56,
+      "inclination_angle": 7.860000134,
+      "ts": "2026-08-06T01:12:13.618Z",
+      "photo_id": "1785978733618_dog001_a63fcd.jpg"
+    },
+    {
+      "id": "0204e02f-9fff-4234-a3f5-030f71c588e2",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -51,
+          "inclination_angle": 7.960000038,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -51,
+      "inclination_angle": 7.960000038,
+      "ts": "2026-08-06T01:13:01.098Z",
+      "photo_id": "1785978781098_dog001_1b3191.jpg"
+    },
+    {
+      "id": "0ab5c848-b9e4-4cb3-9f63-07d5acd9b8c0",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -49,
+          "inclination_angle": 7.989999771,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -49,
+      "inclination_angle": 7.989999771,
+      "ts": "2026-08-06T01:13:55.978Z",
+      "photo_id": "1785978835978_dog001_f03f70.jpg"
+    },
+    {
+      "id": "e6518287-f260-42e0-9bf3-2f0143d07a39",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -47,
+          "inclination_angle": 7.539999962,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -47,
+      "inclination_angle": 7.539999962,
+      "ts": "2026-08-06T01:15:17.042Z",
+      "photo_id": "1785978917042_dog001_0cb072.jpg"
+    },
+    {
+      "id": "c4d95768-7519-4399-a812-530ab49b51e5",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -48,
+          "inclination_angle": 7.670000076,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -48,
+      "inclination_angle": 7.670000076,
+      "ts": "2026-08-06T01:16:24.879Z",
+      "photo_id": "1785978984879_dog001_a359d0.jpg"
+    },
+    {
+      "id": "a9b7829f-a9cb-4eb1-b81a-b9044919e070",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -56,
+          "inclination_angle": 9.449999809,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -56,
+      "inclination_angle": 9.449999809,
+      "ts": "2026-08-06T01:35:27.598Z",
+      "photo_id": "1785980127598_dog001_a29c39.jpg"
+    },
+    {
+      "id": "55a3d95c-1b26-4e7f-9cde-db83e8a9d159",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -60,
+          "inclination_angle": 9.239999771,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -60,
+      "inclination_angle": 9.239999771,
+      "ts": "2026-08-06T01:36:59.527Z",
+      "photo_id": "1785980219527_dog001_3d3720.jpg"
+    },
+    {
+      "id": "5bf12fc8-ea81-45ad-aaa1-2ccb717a641f",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -60,
+          "inclination_angle": 9.319999695,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -60,
+      "inclination_angle": 9.319999695,
+      "ts": "2026-08-06T01:37:42.662Z",
+      "photo_id": "1785980262662_dog001_79d550.jpg"
+    },
+    {
+      "id": "c4e9f67c-60f7-40ae-ac3b-034e34640996",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -61,
+          "inclination_angle": 9.729999542,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -61,
+      "inclination_angle": 9.729999542,
+      "ts": "2026-08-06T01:40:52.247Z",
+      "photo_id": "1785980452247_dog001_076fc7.jpg"
+    },
+    {
+      "id": "47bea68c-5822-4cfb-93f4-9ba2f0e5f6fc",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -60,
+          "inclination_angle": 9.729999542,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -60,
+      "inclination_angle": 9.729999542,
+      "ts": "2026-08-06T01:41:25.710Z",
+      "photo_id": "1785980485710_dog001_829aff.jpg"
+    },
+    {
+      "id": "c6e1123a-55ac-44c6-b6d9-8c78e88cae66",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -62,
+          "inclination_angle": 9.729999542,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -62,
+      "inclination_angle": 9.729999542,
+      "ts": "2026-08-06T01:42:10.521Z",
+      "photo_id": "1785980530521_dog001_125e8b.jpg"
+    },
+    {
+      "id": "4a61af5c-3a32-4451-80c1-fb94a516dd18",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -63,
+          "inclination_angle": 9.729999542,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -63,
+      "inclination_angle": 9.729999542,
+      "ts": "2026-08-06T01:42:39.186Z",
+      "photo_id": "1785980559186_dog001_000ede.jpg"
+    },
+    {
+      "id": "f53b2c8c-b79e-454c-bd06-a163b1e591fa",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -55,
+          "inclination_angle": 7.210000038,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -55,
+      "inclination_angle": 7.210000038,
+      "ts": "2026-08-06T01:46:13.634Z",
+      "photo_id": "1785980773634_dog001_fa1940.jpg"
+    },
+    {
+      "id": "3c8142d9-0e9f-4d15-a66b-3c89303ee1b3",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -54,
+          "inclination_angle": 7.309999943,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -54,
+      "inclination_angle": 7.309999943,
+      "ts": "2026-08-06T01:46:51.207Z",
+      "photo_id": "1785980811207_dog001_5ca70b.jpg"
+    },
+    {
+      "id": "34e6450e-560f-4898-b83d-c8b40f3845d9",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -56,
+          "inclination_angle": 70.94999695,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -56,
+      "inclination_angle": 70.94999695,
+      "ts": "2026-08-06T01:47:21.951Z",
+      "photo_id": "1785980841951_dog001_f29f67.jpg"
+    },
+    {
+      "id": "ccd7b7ee-1145-4dbd-a85e-da788bd8ff70",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -52,
+          "inclination_angle": 7.5,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -52,
+      "inclination_angle": 7.5,
+      "ts": "2026-08-06T01:48:34.675Z",
+      "photo_id": "1785980914675_dog001_73a4a9.jpg"
+    },
+    {
+      "id": "23df51fc-f760-46a1-ad6c-678d420b7a74",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -56,
+          "inclination_angle": 7.239999771,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -56,
+      "inclination_angle": 7.239999771,
+      "ts": "2026-08-06T01:49:03.902Z",
+      "photo_id": "1785980943902_dog001_4741ea.jpg"
+    },
+    {
+      "id": "1da4a9e8-ebb3-4979-957a-2bb835bbf01d",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -53,
+          "inclination_angle": 8.390000343,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -53,
+      "inclination_angle": 8.390000343,
+      "ts": "2026-08-06T01:53:18.003Z",
+      "photo_id": "1785981198003_dog001_cf5595.jpg"
+    },
+    {
+      "id": "89fc4c17-e2de-4515-ae8b-97d981597f9f",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -54,
+          "inclination_angle": 8.390000343,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -54,
+      "inclination_angle": 8.390000343,
+      "ts": "2026-08-06T01:53:43.498Z",
+      "photo_id": "1785981223498_dog001_241899.jpg"
+    },
+    {
+      "id": "ed351f65-f1ee-4cb5-a374-87a2d460f835",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -53,
+          "inclination_angle": 8.390000343,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -54,
+      "inclination_angle": 8.390000343,
+      "ts": "2026-08-06T01:54:12.252Z",
+      "photo_id": "1785981252252_dog001_ccc8c8.jpg"
+    },
+    {
+      "id": "f5ac57d7-03c9-47cb-a2ea-1f548fde8054",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -50,
+          "inclination_angle": 8.81000042,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -50,
+      "inclination_angle": 8.81000042,
+      "ts": "2026-08-06T02:11:17.415Z",
+      "photo_id": "1785982277415_dog001_b0df60.jpg"
+    },
+    {
+      "id": "df4ea06b-d908-4806-b509-9572a6965b5e",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -52,
+          "inclination_angle": 8.319999695,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -50,
+      "inclination_angle": 8.319999695,
+      "ts": "2026-08-06T02:11:38.122Z",
+      "photo_id": "1785982298122_dog001_cdc90d.jpg"
+    },
+    {
+      "id": "ac8d97e7-c469-4bfb-888c-661c870f0c06",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -51,
+          "inclination_angle": 8.829999924,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -52,
+      "inclination_angle": 8.829999924,
+      "ts": "2026-08-06T02:12:01.016Z",
+      "photo_id": "1785982321016_dog001_404a57.jpg"
+    },
+    {
+      "id": "c1b9e458-8a16-4780-a389-703eb31fb0e0",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -50,
+          "inclination_angle": 8.289999962,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -50,
+      "inclination_angle": 8.289999962,
+      "ts": "2026-08-06T02:12:22.153Z",
+      "photo_id": "1785982342153_dog001_8794bc.jpg"
+    },
+    {
+      "id": "eadcc141-d1a7-4c46-a076-a4444ec1d463",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -51,
+          "inclination_angle": 8.880000114,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -51,
+      "inclination_angle": 8.880000114,
+      "ts": "2026-08-06T02:12:44.942Z",
+      "photo_id": "1785982364942_dog001_cb56be.jpg"
+    },
+    {
+      "id": "b89da8c1-538d-46c6-b405-1f5e62d14652",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -53,
+          "inclination_angle": 8.800000191,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -52,
+      "inclination_angle": 8.800000191,
+      "ts": "2026-08-06T02:13:06.154Z",
+      "photo_id": "1785982386154_dog001_e1a260.jpg"
+    },
+    {
+      "id": "90635df6-1d33-45d9-8c65-a7a8ee2d2d95",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -52,
+          "inclination_angle": 8.229999542,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -52,
+      "inclination_angle": 8.229999542,
+      "ts": "2026-08-06T02:13:30.801Z",
+      "photo_id": "1785982410801_dog001_55dcec.jpg"
+    },
+    {
+      "id": "644dae46-5fc9-47f4-853b-0dabee74e7f1",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -52,
+          "inclination_angle": 8.960000038,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -52,
+      "inclination_angle": 8.960000038,
+      "ts": "2026-08-06T02:13:53.115Z",
+      "photo_id": "1785982433115_dog001_bb511e.jpg"
+    },
+    {
+      "id": "9d1bad41-dcae-46ad-90c0-4eb84a6d2919",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -53,
+          "inclination_angle": 8.869999886,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -53,
+      "inclination_angle": 8.869999886,
+      "ts": "2026-08-06T02:14:13.791Z",
+      "photo_id": "1785982453791_dog001_855db0.jpg"
+    },
+    {
+      "id": "fd8f00b5-3c5c-4d87-99ef-4f9baae73eed",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -53,
+          "inclination_angle": 8.819999695,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -53,
+      "inclination_angle": 8.819999695,
+      "ts": "2026-08-06T02:14:36.157Z",
+      "photo_id": "1785982476157_dog001_e6068c.jpg"
+    },
+    {
+      "id": "a13b5a8b-fe90-4e7c-91ab-8efd9b2244eb",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -52,
+          "inclination_angle": 8.449999809,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -54,
+      "inclination_angle": 8.449999809,
+      "ts": "2026-08-06T02:15:07.191Z",
+      "photo_id": "1785982507191_dog001_74fe38.jpg"
+    },
+    {
+      "id": "93fe2734-4987-4ee1-bc63-4a864795eb3e",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -57,
+          "inclination_angle": 40.11000061,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -55,
+      "inclination_angle": 40.11000061,
+      "ts": "2026-08-06T02:15:41.245Z",
+      "photo_id": "1785982541245_dog001_9803f0.jpg"
+    },
+    {
+      "id": "dc880785-3c54-4479-9171-2fda648653da",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -55,
+          "inclination_angle": 40.13999939,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -55,
+      "inclination_angle": 40.13999939,
+      "ts": "2026-08-06T02:16:22.207Z",
+      "photo_id": "1785982582207_dog001_22e344.jpg"
+    },
+    {
+      "id": "2f8474a7-6c45-4db3-88d3-e4a55a98f474",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -58,
+          "inclination_angle": 41.18000031,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -58,
+      "inclination_angle": 41.18000031,
+      "ts": "2026-08-06T02:16:48.115Z",
+      "photo_id": "1785982608115_dog001_d3a0ce.jpg"
+    },
+    {
+      "id": "0de5c356-b28d-4bae-b54d-168457874c96",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -56,
+          "inclination_angle": 41.45999908,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -56,
+      "inclination_angle": 41.45999908,
+      "ts": "2026-08-06T02:17:09.468Z",
+      "photo_id": "1785982629468_dog001_3c95e7.jpg"
+    },
+    {
+      "id": "1b5328fc-a3cd-4cbf-a760-305ad7ae5174",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -57,
+          "inclination_angle": 40.91999817,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -57,
+      "inclination_angle": 40.91999817,
+      "ts": "2026-08-06T02:17:33.273Z",
+      "photo_id": "1785982653273_dog001_ba4f08.jpg"
+    },
+    {
+      "id": "a3f1b721-0de6-4c13-8e4c-eaaec7e84e9e",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -55,
+          "inclination_angle": 40.63999939,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -55,
+      "inclination_angle": 40.63999939,
+      "ts": "2026-08-06T02:17:58.888Z",
+      "photo_id": "1785982678888_dog001_a827af.jpg"
+    },
+    {
+      "id": "d690c1b3-604b-43bb-9452-2473d1e5db07",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -54,
+          "inclination_angle": 39.02999878,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -54,
+      "inclination_angle": 39.02999878,
+      "ts": "2026-08-06T02:18:23.052Z",
+      "photo_id": "1785982703052_dog001_d09521.jpg"
+    },
+    {
+      "id": "fb39f0dd-98b2-4742-bb55-dabf9cca445d",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -60,
+          "inclination_angle": 40.61999893,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -60,
+      "inclination_angle": 40.61999893,
+      "ts": "2026-08-06T02:19:13.785Z",
+      "photo_id": "1785982753785_dog001_10075f.jpg"
+    },
+    {
+      "id": "fced8d9e-1328-4317-b919-a7bfa3efd942",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -57,
+          "inclination_angle": 40.56000137,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -57,
+      "inclination_angle": 40.56000137,
+      "ts": "2026-08-06T02:19:55.966Z",
+      "photo_id": "1785982795966_dog001_7e4626.jpg"
+    },
+    {
+      "id": "a3de1032-6385-4a16-b715-50b646f1efcf",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -53,
+          "inclination_angle": 40.79999924,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -53,
+      "inclination_angle": 40.79999924,
+      "ts": "2026-08-06T02:21:07.442Z",
+      "photo_id": "1785982867442_dog001_40847a.jpg"
+    },
+    {
+      "id": "439a6226-14e5-43cd-aed2-31e7a37052be",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -57,
+          "inclination_angle": 40.43999863,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -57,
+      "inclination_angle": 40.43999863,
+      "ts": "2026-08-06T02:22:33.725Z",
+      "photo_id": "1785982953725_dog001_e3d773.jpg"
+    },
+    {
+      "id": "c7a736b1-a0ec-4c6c-8537-4891768f85b3",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -56,
+          "inclination_angle": 40.84999847,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -56,
+      "inclination_angle": 40.84999847,
+      "ts": "2026-08-06T02:22:57.404Z",
+      "photo_id": "1785982977404_dog001_130fe9.jpg"
+    },
+    {
+      "id": "91d8620a-ebcf-409c-ad51-00d13462d18e",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -64,
+          "inclination_angle": 41.63000107,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -64,
+      "inclination_angle": 41.63000107,
+      "ts": "2026-08-06T02:24:53.159Z",
+      "photo_id": "1785983093159_dog001_91094a.jpg"
+    },
+    {
+      "id": "940b3715-51a0-458c-b522-61d84398d194",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -61,
+          "inclination_angle": 41.70999908,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -61,
+      "inclination_angle": 41.70999908,
+      "ts": "2026-08-06T02:25:13.975Z",
+      "photo_id": "1785983113975_dog001_9f82b0.jpg"
+    },
+    {
+      "id": "8c670b5b-2d1e-43a7-a363-334e7ba939db",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -53,
+          "inclination_angle": 11.32999992,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -54,
+      "inclination_angle": 11.32999992,
+      "ts": "2026-08-07T00:44:00.527Z",
+      "photo_id": "1786063440527_dog001_beabb7.jpg"
+    },
+    {
+      "id": "d4bd8b14-b8bc-451f-b270-db6bccb074bd",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -54,
+          "inclination_angle": 11.11999989,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -53,
+      "inclination_angle": 11.11999989,
+      "ts": "2026-08-07T00:44:54.025Z",
+      "photo_id": "1786063494025_dog001_6cbe0f.jpg"
+    },
+    {
+      "id": "b3092f71-b986-48e2-ab3a-77c90fe763e8",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -54,
+          "inclination_angle": 11.11999989,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -54,
+      "inclination_angle": 11.11999989,
+      "ts": "2026-08-07T00:45:14.091Z",
+      "photo_id": "1786063514091_dog001_eb7813.jpg"
+    },
+    {
+      "id": "61717668-af89-43e5-8e6f-d968f6c4b01b",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -54,
+          "inclination_angle": 11.22999954,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -55,
+      "inclination_angle": 11.22999954,
+      "ts": "2026-08-07T00:45:36.271Z",
+      "photo_id": "1786063536271_dog001_7b558e.jpg"
+    },
+    {
+      "id": "89345e52-ab65-41ad-8fe4-09f672e48b74",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -54,
+          "inclination_angle": 11.22999954,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -54,
+      "inclination_angle": 11.22999954,
+      "ts": "2026-08-07T00:45:58.393Z",
+      "photo_id": "1786063558393_dog001_40c828.jpg"
+    },
+    {
+      "id": "c2ff8488-c0cd-486a-a71e-cd2fd6368169",
+      "device_id": "cam-24DCC3C32190",
+      "collar_id": "col-E83DC19EF528",
+      "pet_id": "dog001",
+      "pet": "Firulais",
+      "owner": "Bolivar",
+      "pet_residence": "B-07",
+      "registered": true,
+      "collar_ids": [
+        "col-E83DC19EF528"
+      ],
+      "pet_ids": [
+        "dog001"
+      ],
+      "pets": [
+        {
+          "collar_id": "col-E83DC19EF528",
+          "pet_id": "dog001",
+          "rssi": -53,
+          "inclination_angle": 11.22999954,
+          "pet": "Firulais",
+          "owner": "Bolivar",
+          "pet_residence": "B-07",
+          "registered": true
+        }
+      ],
+      "residence": "A-1",
+      "rssi": -53,
+      "inclination_angle": 11.22999954,
+      "ts": "2026-08-07T00:46:19.311Z",
+      "photo_id": "1786063579311_dog001_3cc1b3.jpg"
     }
   ],
   "reports": [
@@ -3393,16 +5340,16 @@
     },
     "cam-24DCC3C32190": {
       "device_id": "cam-24DCC3C32190",
-      "fw": "0.4.2-COLD-BOOT",
+      "fw": "0.4.3-AUTO-RECOVERY",
       "firmware_version": null,
-      "wifi_rssi": -53,
-      "last_seen": "2026-07-31T09:56:43.409Z",
+      "wifi_rssi": -45,
+      "last_seen": "2026-08-07T00:46:27.857Z",
       "online": true,
       "type": "main",
       "hardware_uid": "24DCC3C32190",
       "owner_username": "bolo",
       "residence": "A-1",
-      "registered_at": "2026-07-31T09:12:27.929Z"
+      "registered_at": "2026-08-07T00:44:42.317Z"
     },
     "col-CC8DA2C2B778": {
       "device_id": "col-CC8DA2C2B778",
@@ -3438,14 +5385,14 @@
       "pet_id": "dog001",
       "owner_username": "bolo",
       "residence": "A-1",
-      "registered_at": "2026-07-31T09:03:09.555Z",
+      "registered_at": "2026-08-06T01:11:52.898Z",
       "main_device_id": "cam-24DCC3C32190",
-      "online": false,
+      "online": true,
       "detected_by_main_id": "cam-24DCC3C32190",
-      "detected_rssi": -57,
-      "inclination_angle": null,
+      "detected_rssi": -53,
+      "inclination_angle": 11.23,
       "heartbeat_source": "ble_proxy",
-      "last_seen": "2026-07-31T09:32:31.355Z"
+      "last_seen": "2026-08-07T00:46:19.149Z"
     }
   },
   "pets": {
@@ -3633,6 +5580,36 @@
         "pet_id": "dog001",
         "detail": "collar_not_found_or_rejected",
         "completed_at": "2026-07-31T09:06:26.651Z"
+      },
+      {
+        "id": "305a9bdb-4b0a-4203-8c2e-93d1ee989543",
+        "status": "failed",
+        "created_at": "2026-08-04T21:54:52.859Z",
+        "type": "pair_collar",
+        "collar_id": "col-E83DC19EF528",
+        "pet_id": "dog004",
+        "detail": "collar_not_found_or_rejected",
+        "completed_at": "2026-08-04T21:55:10.265Z"
+      },
+      {
+        "id": "6f614e9c-df5a-443b-b56a-b8d70ec9cef5",
+        "status": "completed",
+        "created_at": "2026-08-06T00:08:16.298Z",
+        "type": "ota",
+        "token": "3158b6c0febb504464cbe7c170568f1d6c3204e4492342cb",
+        "firmware_version": "0.3.0-ID",
+        "detail": "ota_started",
+        "completed_at": "2026-08-06T00:09:15.546Z"
+      },
+      {
+        "id": "3deb8ae9-59bc-4287-a6f4-6a4fc68d1d47",
+        "status": "failed",
+        "created_at": "2026-08-06T01:11:52.900Z",
+        "type": "pair_collar",
+        "collar_id": "col-E83DC19EF528",
+        "pet_id": "dog001",
+        "detail": "collar_not_found_or_rejected",
+        "completed_at": "2026-08-06T01:12:13.250Z"
       }
     ]
   }

@@ -12,6 +12,35 @@ namespace up
 {
   struct CollarHeartbeatSlot { String collarId; uint32_t lastSentMs; };
   static CollarHeartbeatSlot s_collarHeartbeats[MAX_TRACKED_PETS];
+  static uint8_t s_serverFailures = 0;
+
+  static void recordHeartbeatResult(int code)
+  {
+    if (code == HTTP_CODE_OK)
+    {
+      if (s_serverFailures != 0)
+        Serial.println("[net] servidor recuperado");
+      s_serverFailures = 0;
+      return;
+    }
+
+    if (s_serverFailures < UINT8_MAX)
+      ++s_serverFailures;
+    Serial.printf("[net] heartbeat fallo HTTP %d (%u/%u)\n", code,
+                  s_serverFailures, SERVER_FAILURES_RESTART);
+
+    if (s_serverFailures >= SERVER_FAILURES_RESTART)
+    {
+      Serial.println("[net] servidor inaccesible; reinicio de recuperacion");
+      delay(100);
+      ESP.restart();
+    }
+    if (s_serverFailures == SERVER_FAILURES_WIFI_RESET)
+    {
+      Serial.println("[net] reiniciando enlace WiFi");
+      WiFi.disconnect(false, false);
+    }
+  }
 
   static void ackCommand(const netcfg::Config &cfg, const char *commandId,
                          bool ok, const char *detail)
@@ -122,12 +151,13 @@ namespace up
     http.addHeader("Content-Type", "application/json");
     char body[200];
     snprintf(body, sizeof(body),
-             "{\"device_id\":\"%s\",\"type\":\"main\",\"fw\":\"0.4.2-COLD-BOOT\"," 
+             "{\"device_id\":\"%s\",\"type\":\"main\",\"fw\":\"0.4.3-AUTO-RECOVERY\"," 
              "\"residence\":\"%s\",\"wifi_rssi\":%d}",
              identity::deviceId().c_str(), cfg.residence.c_str(), (int)WiFi.RSSI());
     int code = http.POST((uint8_t *)body, strlen(body));
     String response = code == 200 ? http.getString() : "";
     http.end();
+    recordHeartbeatResult(code);
     if (response.isEmpty()) return;
 
     DynamicJsonDocument doc(3072);

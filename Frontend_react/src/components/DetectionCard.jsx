@@ -20,6 +20,9 @@ export default function DetectionCard({ det, selected, onToggle }) {
         <div className="meta">
           ID: {det.pet_id} · RSSI: {det.rssi ?? "—"} dBm
         </div>
+        <div className="meta">
+          Ángulo: {det.inclination_angle != null ? `${Number(det.inclination_angle).toFixed(1)}°` : "No disponible"}
+        </div>
         <div className="meta">{when}</div>
         <label className="checkbox-row" onClick={(e) => e.stopPropagation()}>
           <input type="checkbox" checked={selected} onChange={() => onToggle(det.id)} />

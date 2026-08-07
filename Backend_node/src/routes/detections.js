@@ -37,7 +37,13 @@ module.exports = function detectionsRouter(store) {
         .map((item) => ({ collar_id: String(item?.collar_id || ""), pet_id: String(item?.pet_id || ""), rssi: Number.isFinite(Number(item?.rssi)) ? Number(item.rssi) : null,
           inclination_angle: Number.isFinite(Number(item?.inclination_angle)) ? Math.max(0, Math.min(180, Number(item.inclination_angle))) : null }))
         .filter((item) => item.collar_id && item.pet_id);
-      if (!nearby.length && pet_id) nearby.push({ collar_id: collar_id || null, pet_id: String(pet_id), rssi: rssi ?? null });
+      if (!nearby.length && pet_id) nearby.push({
+        collar_id: collar_id || null,
+        pet_id: String(pet_id),
+        rssi: rssi ?? null,
+        inclination_angle: Number.isFinite(Number(meta.inclination_angle)) ?
+          Math.max(0, Math.min(180, Number(meta.inclination_angle))) : null,
+      });
       if (!device_id || !nearby.length) {
         return res
           .status(400)

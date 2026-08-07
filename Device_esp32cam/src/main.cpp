@@ -7,6 +7,7 @@
 // =============================================================================
 #include <Arduino.h>
 #include <WiFi.h>
+#include <esp_task_wdt.h>
 
 #include "config.h"
 #include "net_config.h"
@@ -16,7 +17,7 @@
 #include "led_status.h"
 #include "identity.h"
 
-#define FW_VERSION "0.4.2-COLD-BOOT"
+#define FW_VERSION "0.4.3-AUTO-RECOVERY"
 
 // En un encendido en frio, el regulador de muchas placas ESP32-CAM tarda en
 // estabilizarse. Evita encender camara y radio durante ese transitorio.
@@ -61,6 +62,12 @@ void setup()
   Serial.begin(115200);
   delay(POWER_STABILIZE_MS);
 
+  // Si camara, BLE o red bloquean el loop, reiniciar para reconectar solo.
+  esp_err_t wdtInit = esp_task_wdt_init(WATCHDOG_TIMEOUT_S, true);
+  esp_err_t wdtAdd = esp_task_wdt_add(nullptr);
+  Serial.printf("[wdt] init=%d add=%d timeout=%us\n", wdtInit, wdtAdd,
+                WATCHDOG_TIMEOUT_S);
+
   led::begin();
   Serial.println();
   Serial.println("Device (ESP32-CAM) boot - P3/P4/P6");
@@ -91,6 +98,7 @@ void setup()
 
 void loop()
 {
+  esp_task_wdt_reset();
   led::update(); // primero: avanzar la máquina de estados del LED
 
   ble::PetHit hit;
@@ -188,5 +196,6 @@ void loop()
   }
 
   // Cede tiempo al RTOS y revisa la cadencia varias veces dentro de cada ventana de 100 ms.
+  esp_task_wdt_reset();
   delay(10);
 }

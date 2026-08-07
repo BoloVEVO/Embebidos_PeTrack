@@ -6,6 +6,7 @@
 
 namespace pairing {
 static volatile uint32_t s_restartRequestedAt = 0;
+static NimBLEServer *s_server = nullptr;
 
 class ConfigCallbacks : public NimBLECharacteristicCallbacks {
   void onWrite(NimBLECharacteristic *characteristic) override {
@@ -32,8 +33,8 @@ class ConfigCallbacks : public NimBLECharacteristicCallbacks {
 };
 
 void begin() {
-  NimBLEServer *server = NimBLEDevice::createServer();
-  NimBLEService *service = server->createService(PAIRING_SERVICE_UUID);
+  s_server = NimBLEDevice::createServer();
+  NimBLEService *service = s_server->createService(PAIRING_SERVICE_UUID);
   NimBLECharacteristic *config = service->createCharacteristic(
       PAIRING_CHAR_UUID, NIMBLE_PROPERTY::READ | NIMBLE_PROPERTY::WRITE);
   config->setValue("ready");
@@ -44,5 +45,9 @@ void begin() {
 bool restartDue() {
   const uint32_t requestedAt = s_restartRequestedAt;
   return requestedAt != 0 && millis() - requestedAt >= 1000;
+}
+
+bool hasConnections() {
+  return s_server && s_server->getConnectedCount() > 0;
 }
 }
